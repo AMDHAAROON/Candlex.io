@@ -12,8 +12,7 @@ Candlex.io is a sleek portfolio-style site showcasing candlelight aesthetics, bl
 
 ## 🛠️ Tech Stack  
 - **Framework**: Vite + React  
-- **Styling**: Tailwind CSS  
-- **Hosting**: Firebase  
+- **Styling**: Tailwind CSS   
 - **Version Control**: Git + GitHub  
 
 ## 🧩 Setup Instructions  
