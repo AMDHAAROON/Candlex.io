@@ -1,6 +1,6 @@
 import { Bars3Icon} from '@heroicons/react/24/solid'
 import { useState } from 'react'
-import candle from '../assets/candle.png'
+import candle from '../assets/logo/candle.png'
 
 
 
