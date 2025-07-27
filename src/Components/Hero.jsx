@@ -41,9 +41,16 @@ const Carousel = () => {
   }, [currentIndex]);
 
   return (
+    <div className="py-1 bg-gray-300 pb-5">
     <Box
+       
       sx={{
         backgroundColor: "#000",
+        borderTopRightRadius: "1rem",
+        borderTopLeftRadius: "1rem",
+         borderBottomLeftRadius: "3rem",  // 2xl = 1rem = 16px
+    borderBottomRightRadius: "3rem",
+     overflow: "hidden",
         color: "#eee",
         fontFamily: "Poppins, sans-serif",
         fontSize: "12px",
@@ -80,6 +87,7 @@ const Carousel = () => {
                 position: "relative",
               }}
             >
+              <div className="w-full h-[100vh] sm:h-screen overflow-hidden">
             <Box
   component="img"
   src={slide.img}
@@ -88,10 +96,13 @@ const Carousel = () => {
     width: "100%",
     height: "100%", // Force the image to take up full height
     objectFit: "cover",
-    objectPosition: { xs: "Center", sm: "top" }, // Left focus on mobile, center on larger screens
+     objectPosition: "center top", // better fallback, works across breakpoints
+    display: "block",
+    // height: { xs: "calc(150dvh - 200px)", sm: "100vh" }
+
   }}
 />
-
+</div>
               <Box
                 sx={{
                   position: "absolute",
@@ -137,7 +148,7 @@ const Carousel = () => {
 
                 {/* See More Button */}
                 {index !== 3 && (
-                <Box sx={{ marginTop: "20px" }}>
+                <Box sx={{ marginTop: "270px" }} md={{justtifyContent: "center"}}>
                   <Button
                     variant="contained"
                     endIcon={<ArrowCircleRightIcon />}
@@ -166,7 +177,7 @@ const Carousel = () => {
         </Box>
 
         {/* Thumbnails with Titles & Descriptions */}
-        <Box
+        {/* <Box
           sx={{
             position: "absolute",
             bottom: ["10px", "10px"],
@@ -174,7 +185,7 @@ const Carousel = () => {
             transform: "translateX(-50%)",
             display: "flex",
             gap: "10px",
-            zIndex: 100,
+            zIndex: 30,
             overflowX: "auto",
             scrollSnapType: "x mandatory",
             "&::-webkit-scrollbar": {
@@ -196,12 +207,17 @@ const Carousel = () => {
                 overflow: "hidden",
                 border:
                   index === currentIndex
-                    ? "5px solid #6249CE"
+                    ? "5px solid #FFAE35"
                     : "5px solid transparent",
                 transition: "transform 0.3s",
                 scrollSnapAlign: "start",
                 "&:hover img": {
                   transform: "scale(1.05)",
+                  maxWidth: "100%",      // Ensures it doesn’t overflow container
+    scrollSnapType: "x mandatory", 
+    zIndex: 1, // ✅ lower zIndex
+    marginTop: 0,
+    
                 },
               }}
             >
@@ -214,6 +230,7 @@ const Carousel = () => {
                   height: "100%",
                   objectFit: "cover",
                   transition: "transform 0.3s",
+                  position:"relative",
                 }}
               />
               <Box
@@ -234,7 +251,7 @@ const Carousel = () => {
               </Box>
             </Box>
           ))}
-        </Box>
+        </Box> */}
 
         {/* Progress Bar */}
         <Box
@@ -255,8 +272,34 @@ const Carousel = () => {
             }}
           />
         </Box>
+        
+
       </Box>
+    
+  <Box
+    className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center bg-[#f1cc94] bg-opacity-90 rounded-full px-4 py-2 shadow-md border border-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-5 h-5 text-black"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+      />
+    </svg>
+    <a href="#about" className="ml-2 font-semibold text-sm text-black">
+      Scroll Down
+    </a>
+  </Box>
     </Box>
+   
+    </div>
   );
 };
 
