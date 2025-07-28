@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 @import "tailwindcss";
 
 @theme{
       --font-logo: Edu AU VIC WA NT Arrows;
+      --font-cursive: Dancing Script
 }
 
 /* :root {
