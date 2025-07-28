@@ -8,6 +8,22 @@
       --font-cursive: Dancing Script
 }
 
+.float-img {
+  animation: floatY 2s ease-in-out infinite;
+ transform: translatex(-10px); 
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+ html{
+  scroll-behavior: smooth;
+ }
+
+/* .animate-fade-in {
+  animation: fade-in 1s ease-in-out;
+} */
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
