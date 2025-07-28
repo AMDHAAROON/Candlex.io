@@ -15,7 +15,7 @@ export default function Header(){
         <div className=''>
         <nav className="hidden  md:block ">
         <ul className=" flex gap-9  mt-2 text-gray-600 font-mono text-2xl  text-left">
-           <li> <a href="#about" className='pb-1 border-b-4  border-[#8a673d] hover:border-white  transition-all duration-300'>Products</a></li>
+           <li> <a href="#products" className='pb-1 border-b-4  border-[#8a673d] hover:border-white  transition-all duration-300'>Products</a></li>
             <li><a href="#project" className='pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300'>Cart</a></li>
             <li><a href="#project" className='pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300'>Faq</a></li>
             <li><a href="#resume" className='pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300'>About</a></li>
@@ -29,7 +29,7 @@ export default function Header(){
         {toggleMenu && (
   <nav className="fixed inset-0 top-20 z-40 bg-[#4E3D28] md:hidden">
     <ul onClick={() => settoggleMenu(false)} className="flex flex-col items-center justify-center h-full space-y-6 text-white text-2xl">
-      <li> <a href="#about" className='pb-1 border-b-4  border-[#8a673d] hover:border-white  transition-all duration-300'>Products</a></li>
+      <li> <a href="#products" className='pb-1 border-b-4  border-[#8a673d] hover:border-white  transition-all duration-300'>Products</a></li>
             <li><a href="#project" className='pb-4 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300'>Cart</a></li>
             <li><a href="#project" className='pb-4 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300'>Faq</a></li>
             <li><a href="#resume" className='pb-4 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300'>About</a></li>
