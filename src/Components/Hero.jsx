@@ -41,7 +41,7 @@ const Carousel = () => {
   }, [currentIndex]);
 
   return (
-    <div className="py-1 bg-gray-300 pb-5">
+    <div className="py-1 bg-gray-100  pb-5 ">
     <Box
        
       sx={{
@@ -277,7 +277,7 @@ const Carousel = () => {
       </Box>
     
   <Box
-    className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center bg-[#f1cc94] hover:bg-white bg-opacity-90 rounded-full px-4 py-2 shadow-md border-4 border-white hover:border-[#f1cc94]"
+    className=" float-img absolute bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center bg-[#f1cc94] hover:bg-white bg-opacity-90 rounded-full px-4 py-2 shadow-md border-4 border-white hover:border-[#f1cc94]"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
