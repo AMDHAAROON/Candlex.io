@@ -4,13 +4,15 @@ import "./index.css";
 import Navbar from "./Components/Navbar.jsx";
 import Hero from "./Components/Hero.jsx";
 import Products from "./Components/Product.jsx";
+import Banner from "./Components/banner.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className=" bg-gray-300 px-2 ">
+    <div className=" bg-gray-100 px-2 ">
       <Navbar />
       <Hero />
-      <section className="pb-4">
+      <Banner />
+      {/* <section className="pb-4">
         <div className="relative w-full   rounded-2xl  border-2 border-[#e7c99b] ">
           <img
             src="Assets/banner.jpg"
@@ -24,7 +26,7 @@ createRoot(document.getElementById("root")).render(
             </h1>
           </div>
         </div>
-      </section>
+      </section> */}
       <Products/>
     </div>
   </StrictMode>
