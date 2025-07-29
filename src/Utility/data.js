@@ -31,3 +31,12 @@ export const slides = [
 //     path: "/Workshops",
 //   },
 ];
+
+export const candleProducts = [
+  {
+     image: 'Assets/seperate/candle1.png',
+  },
+  {
+    image: 'Assets/seperate/candle1.png',
+  }
+]
