@@ -293,7 +293,7 @@ const Carousel = () => {
         d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
       />
     </svg>
-    <a href="#about" className="ml-2 font-semibold text-sm text-black">
+    <a href="#banner" className="ml-2 font-semibold text-sm text-black">
       Scroll Down
     </a>
   </Box>

@@ -7,7 +7,7 @@ const BannerSection = () => {
   });
 
   return (
-    <section className="pb-4" ref={ref}>
+    <section className="pb-4" ref={ref} id="banner">
       <div className="relative w-full rounded-2xl border-2 border-[#e7c99b] overflow-hidden  shadow-xl">
         {/* Banner Image */}
         <img
