@@ -5,10 +5,13 @@ import Navbar from "./Components/Navbar.jsx";
 import Hero from "./Components/Hero.jsx";
 import Products from "./Components/Product.jsx";
 import Banner from "./Components/banner.jsx";
+import Faq from "./Components/Faq.jsx";
+import About from "./Components/About.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className=" bg-gray-100 px-2 ">
+    <div className=" bg-gray-300 px-2 ">
       <Navbar />
       <Hero />
       <Banner />
@@ -28,6 +31,9 @@ createRoot(document.getElementById("root")).render(
         </div>
       </section> */}
       <Products/>
+      <Faq />
+      <About />
+      
     </div>
   </StrictMode>
 );
