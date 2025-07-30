@@ -37,6 +37,9 @@ export const candleProducts = [
      image: 'Assets/seperate/candle1.png',
   },
   {
-    image: 'Assets/seperate/candle1.png',
-  }
+    image: 'Assets/seperate/candle2.png',
+  },
+  {
+    image: 'Assets/seperate/candle3.png',
+  },
 ]
