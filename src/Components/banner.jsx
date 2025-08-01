@@ -29,8 +29,8 @@ const BannerSection = () => {
             inView ? "opacity-100" : "opacity-0"
           }`}
         >
-          <h1 className="text-center text-3xl sm:text-5xl text-black font-cursive px-4">
-            Light your life with our candles
+          <h1 className="text-center text-2xl sm:text-5xl text-[#4E3D28] font-hero   px-4">
+            Light your life with our Candles
           </h1>
         </div>
       </div>
