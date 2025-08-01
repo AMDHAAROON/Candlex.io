@@ -34,12 +34,12 @@ export const slides = [
 
 export const candleProducts = [
   {
-     image: 'Assets/seperate/candle1.png',
+    name: "Vanilla Bliss",
+    image: "Assets/seperate/p3.png"
   },
   {
-    image: 'Assets/seperate/candle2.png',
+    name: "Rose Garden",
+    image: "Assets/seperate/p2.png"
   },
-  {
-    image: 'Assets/seperate/candle3.png',
-  },
-]
+  // Add more products...
+];
