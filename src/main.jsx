@@ -7,6 +7,7 @@ import Products from "./Components/Product.jsx";
 import Banner from "./Components/banner.jsx";
 import Faq from "./Components/Faq.jsx";
 import About from "./Components/About.jsx";
+import Footer from "./Components/Footer.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -33,7 +34,7 @@ createRoot(document.getElementById("root")).render(
       <Products/>
       <Faq />
       <About />
-      
+      <Footer/>
     </div>
   </StrictMode>
 );
