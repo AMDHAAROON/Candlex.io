@@ -41,15 +41,15 @@ const Carousel = () => {
   }, [currentIndex]);
 
   return (
-    <div className="py-1 bg-gray-100  pb-5 ">
+    <div className="pt-1  bg-gray-100  mb-5 rounded-b-4xl  rounded-t-2xl">
     <Box
        
       sx={{
         backgroundColor: "#000",
         borderTopRightRadius: "1rem",
         borderTopLeftRadius: "1rem",
-         borderBottomLeftRadius: "3rem",  // 2xl = 1rem = 16px
-    borderBottomRightRadius: "3rem",
+         borderBottomLeftRadius: "2rem",  // 2xl = 1rem = 16px
+    borderBottomRightRadius: "2rem",
      overflow: "hidden",
         color: "#eee",
         fontFamily: "Poppins, sans-serif",
