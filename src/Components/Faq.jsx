@@ -104,7 +104,7 @@ export default function Faq() {
     <div className="bg-[linear-gradient(to_top_left,#ffba52_0%,#ffffff_50%,#ffba52_100%)] rounded-2xl shadow-orange-300 border-2 border-white " id="Faq">
     <section className="mx-32 pt-4  ">
          <h1 className="text-center mt-4 mb-6 text-4xl font-bold text-[#4E3D28] ">
-           Frequently Asked Questions
+           For Your Queries
           </h1>
       <Box
         sx={{
@@ -114,10 +114,11 @@ export default function Faq() {
           gap: 1, // Adds vertical spacing between accordions
           "& .MuiPaper-root.MuiAccordion-root": {
             boxShadow: "0px 12px 21px rgb(0 0 0 / 5%)",
-            borderTop: "none",
-            borderRadius: ".4rem",
+            
+            borderRadius: "1rem",
+            borderColor: "#ff",
             p: 1,
-             background: 'linear-gradient(to left, #ffba52, white)',
+             background: '#FFD99D',
             color: "#fff",
             mb: 2, // Adds spacing between each accordion
           },
