@@ -41,5 +41,9 @@ export const candleProducts = [
     name: "Rose Garden",
     image: "Assets/seperate/p2.png"
   },
+  {
+    name: "Magical dunes",
+    image: "Assets/seperate/p1.png"
+  },
   // Add more products...
 ];
