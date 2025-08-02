@@ -10,13 +10,43 @@
       --font-hero: Poppins;
 }
 
-.float-img {
+
+.underline-on-scroll::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  
+  height:5px;
+  width: 0%;
+  border-radius: 10px;
+  background-color: #a37844;
+  transition: width 0.7s ease-out;
+}
+
+.aos-animate.underline-on-scroll::after {
+  width: 80%;
+}
+
+
+
+
+.floatud-img {
   animation: floatY 2s ease-in-out infinite;
  transform: translatex(-10px); 
 }
 @keyframes floatY {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+.floatlr-img {
+  animation: floatX 2s ease-in-out infinite;
+ transform: translatex(-10px); 
+}
+@keyframes floatX{
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
 }
 
  html{
