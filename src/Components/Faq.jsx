@@ -41,10 +41,10 @@ export default function Faq() {
       que: "Do you offer custom scents or gift packaging?",
       ans: "Absolutely! We offer personalized scent blends and gift-wrapped candles for special occasions. Contact us via WhatsApp or our Contact Us page.",
     },
-    {
-      que: "Do you charge a delivery fee?",
-      ans: "Yes, we charge a small delivery fee based on your location and order size.",
-    },
+    // {
+    //   que: "Do you charge a delivery fee?",
+    //   ans: "Yes, we charge a small delivery fee based on your location and order size.",
+    // },
     // {
     //   que: "What time does the event start?",
     //   ans: "The event starts at 5 PM. Please arrive on time for entry.",
