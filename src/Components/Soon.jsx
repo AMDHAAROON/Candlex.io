@@ -17,7 +17,7 @@ export default function Soon() {
               <h1 className="text-7xl font-bold text-[#4E3D28] ">
                Kaori Diffuser Oil
               </h1>
-              <p className="mt-8 text-5xl inline-block  p-3 rounded-lg bg-[#8d6f49] text-[#FFEBD4] font-bold">
+              <p className="mt-8 text-5xl inline-block  p-3 rounded-lg bg-[#8d6f49] hover:bg-[#FFDBAB] text-[#FFEBD4] hover:text-[#8d6f49] font-bold cursor-pointer">
                  Comming soon
               </p>
             </div>
