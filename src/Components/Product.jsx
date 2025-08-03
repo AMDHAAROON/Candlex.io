@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { candleProducts } from "../Utility/data";
 
-export default function Header() {
+export default function Product() {
   const [toggleMenu, settoggleMenu] = useState(false);
   const [liked, setLiked] = useState({}); // 🟢 FIX: Declare it here
 
@@ -22,9 +22,9 @@ export default function Header() {
     <>
       <section className="pb-4" id="products">
         <div className="pb-10 relative px-8 bg-[linear-gradient(to_top_right,#ffba52_0%,#ffffff_50%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
-          <div className="flex justify-between items-center px-8 mt-1">
+          <div className="flex justify-between items-center  mt-1">
             <h1
-              className="relative inline-block px-8 pb-5 mt-5 text-3xl font-hero text-[#4E3D28] underline-on-scroll"
+              className="relative inline-block px-8 pb-5 mt-5 text-2xl font-hero text-[#4E3D28] underline-on-scroll"
               data-aos="fade"
               data-aos-once="false"
             >
@@ -53,21 +53,21 @@ export default function Header() {
             </h1>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 pt-6">
+          <div className="flex flex-wrap justify-center gap-6 ">
             {candleProducts.map((item, index) => (
               <div
                 key={index}
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
-                className="group relative my-8 rounded-2xl overflow-hidden h-[450px] w-[350px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
+                className="group relative my-8 rounded-2xl overflow-hidden h-[600px] w-[450px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
               >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="rounded-2xl h-[450px] w-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  className="rounded-2xl h-[600px] w-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
                 />
 
-                <div className="absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-2xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                   <span>{item.name}</span>
                   <button onClick={() => toggleLike(index)}>
                     <svg
