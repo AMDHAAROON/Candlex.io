@@ -24,7 +24,7 @@ export default function Collection() {
         <div className="pb-10 relative px-8 bg-[linear-gradient(to_top_right,#ffba52_0%,#ffffff_50%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
           <div className="flex justify-between items-center mt-1">
             <h1
-              className="relative inline-block px-8 pb-5 mt-5 text-3xl font-hero text-[#4E3D28] underline-on-scroll"
+              className="relative inline-block px-8 pb-5 mt-5 text-2xl font-hero text-[#4E3D28] underline-on-scroll"
               data-aos="fade"
               data-aos-once="false"
             >
