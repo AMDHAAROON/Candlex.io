@@ -12,20 +12,18 @@ import Grid from "@mui/material/Grid";
 // Navigation links for quick access
 const navLinks = [
   { title: "Home", path: "/" },
-  { title: "Workshops", path: "/" },
-  { title: "Events", path: "/" },
+  { title: "Products", path: "/" },
   { title: "Contact Us", path: "/" },
 ];
 
 // Useful external links
 const UsefulLinks = [
-  { title: "Sastra University", href: "https://src.sastra.edu/" },
-  { title: "Rules & Regulation", path: "https://src.sastra.edu/" },
+  { title: "Privacy Policy", href: "https://src.sastra.edu/" },
+  { title: "Return & Refund Policy", path: "https://src.sastra.edu/" },
 ];
 
 // Social media links
 const socialLinks = [
-  { Icon: LinkedInIcon, url: "https://www.linkedin.com/company/theta-src" },
   {
     Icon: InstagramIcon,
     url: "https://www.instagram.com/theta_src",
@@ -60,34 +58,41 @@ const Footer = () => {
 
   return (
     <section>
-    <div className="py-8">
-    <Box sx={{  background: "linear-gradient(to bottom left, #ffba52 0%, #ffffff 50%, #ffba52 100%)", color: "#4E3D28", px: { xs: 2 } ,borderRadius:"20px"}}>
+    <div className="py-8  ">
+    <Box  sx={{
+    background: "linear-gradient(to bottom left, #ffba52 0%, #ffffff 50%, #ffba52 100%)",
+    border: '2px solid',
+    borderColor: "#ffffff",
+    borderRadius: '20px',
+    color: "#4E3D28",
+    px: { xs: 2 }
+  }}>
       <Box sx={{ py: 5 }}>
         <Grid container spacing={4} justifyContent="center">
           {/* Contact Information Section */}
           <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="h6"  gutterBottom>
-              National Level Techno-Management Fest, Theta
+            <Typography variant="h6"   gutterBottom sx={{ fontWeight: 'bold' }}>
+              CRAFTED CALM IN EVERY FLAME
             </Typography>
             <Box display="flex" alignItems="center" mt={2}>
               <HomeIcon />
-              <Typography sx={{ ml: 2 }}>
-                SASTRA Deemed to be University, SRC, Kumbakonam - 612001.
+              <Typography sx={{ ml: 2, fontWeight: 600}}>
+                12, Mela Veethi, Near Mahamaham Tank, Kumbakonam – 612001
               </Typography>
             </Box>
             <Box display="flex" alignItems="center" mt={1}>
               <PhoneIcon />
-              <Typography sx={{ ml: 2 }}>0435-2426823</Typography>
+              <Typography sx={{ ml: 2 ,fontWeight: 600}}>0435-2426823</Typography>
             </Box>
             <Box display="flex" alignItems="center" mt={1}>
               <EmailIcon />
-              <Typography sx={{ ml: 2 }}>theta@src.sastra.ac.in</Typography>
+              <Typography sx={{ ml: 2,fontWeight: 600 }}>support@candleglow.in</Typography>
             </Box>
           </Grid>
 
           {/* Quick Links Section */}
           <Grid item xs={12} sm={6} md={2}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Quick Links
             </Typography>
             {navLinks.map((item, index) => (
@@ -105,7 +110,7 @@ const Footer = () => {
 
           {/* Useful Links Section */}
           <Grid item xs={12} sm={6} md={2}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Useful links
             </Typography>
             {UsefulLinks.map((item, index) => (
@@ -134,7 +139,7 @@ const Footer = () => {
 
           {/* Social Media Section */}
           <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Subscribe for latest updates
             </Typography>
             <Box mt={2} display="flex" justifyContent="flex-start">
@@ -164,7 +169,7 @@ const Footer = () => {
         {/* Footer Copyright Section */}
         <Box textAlign="center" mt={5}>
           <Typography variant="body2">
-            Copyright &copy; 2025 Theta | Designed and Developed by{" "}
+            Copyright &copy; 2025 Candlex | Designed and Developed by{" "}
             <a
              
               onClick={ScrollToTop}
@@ -175,7 +180,7 @@ const Footer = () => {
                 fontSize: "1rem",
               }}
             >
-              WebTEK
+              Dream in Divs
             </a>
           </Typography>
         </Box>
