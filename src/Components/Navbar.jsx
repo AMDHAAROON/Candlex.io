@@ -46,17 +46,26 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:block">
             <ul className="flex gap-9 mt-2 text-gray-600 font-mono text-2xl">
-              {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
-                <li key={idx}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+  <li>
+    <a
+      href="/"
+      className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+    >
+      Home
+    </a>
+  </li>
+  {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
+    <li key={idx}>
+      <a
+        href={`#${item.toLowerCase()}`}
+        className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+      >
+        {item}
+      </a>
+    </li>
+  ))}
+</ul>
+
           </nav>
 
           {/* Mobile Toggle */}
