@@ -63,7 +63,7 @@ export default function Collection() {
                   data-aos="fade-up"
                   data-aos-delay={index * 200}
                   className={`group relative my-8 rounded-2xl overflow-hidden transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl ${
-                    isSecond ? "h-[650px] w-[550px]" : "h-[650px] w-[800px]"
+                    isSecond ? "h-[650px] w-[500px]" : "h-[650px] w-[700px]"
                   }`}
                 >
                   <img

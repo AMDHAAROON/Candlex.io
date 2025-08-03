@@ -58,7 +58,7 @@ export default function Shop() {
               <div
                 key={index}
               
-                className="group relative my-8 rounded-xl overflow-hidden h-[280px] w-[450px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
+                className="group relative my-8 rounded-xl overflow-hidden h-[280px] w-[400px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
               >
                 <img
                   src={item.image}

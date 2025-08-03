@@ -59,7 +59,7 @@ export default function Product() {
                 key={index}
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
-                className="group relative my-8 rounded-2xl overflow-hidden h-[600px] w-[450px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
+                className="group relative my-8 rounded-2xl overflow-hidden h-[600px] w-[400px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
               >
                 <img
                   src={item.image}
