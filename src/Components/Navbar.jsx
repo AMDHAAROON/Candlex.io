@@ -1,6 +1,6 @@
-import { Bars3Icon } from '@heroicons/react/24/solid'
-import { useState, useEffect } from 'react'
-import candle from "/Assets/logo/candle.png"
+import { Bars3Icon } from "@heroicons/react/24/solid";
+import { useState, useEffect } from "react";
+import candle from "/Assets/logo/candle.png";
 
 export default function Header() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -46,30 +46,34 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:block">
             <ul className="flex gap-9 mt-2 text-gray-600 font-mono text-2xl">
-  <li>
-    <a
-      href="/"
-      className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
-    >
-      Home
-    </a>
-  </li>
-  {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
-    <li key={idx}>
-      <a
-        href={`#${item.toLowerCase()}`}
-        className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
-      >
-        {item}
-      </a>
-    </li>
-  ))}
-</ul>
-
+              <li>
+                <a
+                  href="/"
+                  className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+                >
+                  Home
+                </a>
+              </li>
+              {["Products", "Cart", "Faq", "About", "Contact"].map(
+                (item, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
           </nav>
 
           {/* Mobile Toggle */}
-          <button onClick={() => setToggleMenu(!toggleMenu)} className="block md:hidden">
+          <button
+            onClick={() => setToggleMenu(!toggleMenu)}
+            className="block md:hidden"
+          >
             <Bars3Icon className="text-black h-10 pb-2" />
           </button>
         </header>
@@ -81,16 +85,18 @@ export default function Header() {
               onClick={() => setToggleMenu(false)}
               className="flex flex-col items-center justify-center h-full space-y-6 text-white text-2xl"
             >
-              {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
-                <li key={idx}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="pb-4 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              {["Products", "Cart", "Faq", "About", "Contact"].map(
+                (item, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="pb-4 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </nav>
         )}
