@@ -8,7 +8,7 @@ export const slides = [
     buttons: [],
     thumbnailtitle: "",
     thumbnaildesc: "",
-    path: "/Workshops",
+    path: "/",
   },
  {
      img: "Assets/hero/img2.jpg",
@@ -18,18 +18,8 @@ export const slides = [
     buttons: [],
     thumbnailtitle: "",
     thumbnaildesc: "",
-    path: "/Workshops",
+    path: "/",
   },
-//  {
-//      img: "Assets/hero/img3.png",
-//     title: "",
-//     topic: "",
-//     des: "",
-//     buttons: [],
-//     thumbnailtitle: "",
-//     thumbnaildesc: "",
-//     path: "/Workshops",
-//   },
 ];
 
 export const candleProducts = [
@@ -50,15 +40,12 @@ export const candleProducts = [
 
 export const shop = [
   {
-   
     image: "Assets/seperate/s1.png"
   },
   {
-   
     image: "Assets/seperate/s2.png"
   },
   {
-   
     image: "Assets/seperate/s3.png"
   },
   // Add more products...
@@ -66,12 +53,10 @@ export const shop = [
 
 export const categories = [
   {
-   
     image: "Assets/seperate/c1.png",
     name: "Burano Candles"
   },
   {
-   
     image: "Assets/seperate/c2.png",
     name: "Glass Candles"
   },
@@ -85,29 +70,17 @@ export const categories = [
     name: "Candle Accessories"
 
   },
-  // Add more product
-  //s...
+  // Add more products...
 ];
 
 export const Collections = [
   {
-   
     image: "Assets/hero/big1.png",
     name: "Marble Black & White Tea Light Holder"
   },
    {
-   
     image: "Assets/hero/big2.png",
     name: "Marble Standing Candle Holder - Set"
   },
-  // {
-  //   image: "Assets/seperate/c3.png",
-  //   name: "Car perfumes"
-
-  // },
-  //   {
-  //   image: "Assets/seperate/c4.png",
-  //   name: "Candle Accessories"
-  // },
   // // Add more products...
 ];

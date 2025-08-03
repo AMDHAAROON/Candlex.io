@@ -10,7 +10,7 @@ import About from "./Components/About.jsx";
 import Footer from "./Components/Footer.jsx";
 import Shop from "./Components/Shop.jsx";
 import Categories from "./Components/Categories.jsx";
-import Banner2 from "./Components/Offer.jsx";
+import Offer from "./Components/Offer.jsx";
 import Collections from "./Components/Collections.jsx";
 import Soon from "./Components/Soon.jsx";
 
@@ -20,29 +20,12 @@ createRoot(document.getElementById("root")).render(
       <Navbar />
       <Hero />
       <Banner />
-      {/* <section className="pb-4">
-        <div className="relative w-full   rounded-2xl  border-2 border-[#e7c99b] ">
-          <img
-            src="Assets/banner.jpg"
-            alt="Banner"
-            className="w-full h-[30vh] object-cover object-left rounded-2xl"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ffba52] to-white opacity-50 rounded-2xl ">
-            <h1 className="text-center pt-20 text-5xl text-black font-cursive">
-              Light your life with our candles
-            </h1>
-          </div>
-        </div>
-      </section> */}
-      
       <Shop/>
       <Categories />
-      <Banner2/>
+      <Offer/>
       <Products/>
       <Collections/>
       {/* <Faq /> */}
-      
       {/* <About /> */}
       <Soon/>
       <Footer/>
