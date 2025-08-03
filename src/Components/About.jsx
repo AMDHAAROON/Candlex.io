@@ -8,7 +8,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="About" className="rounded-2xl border-2 border-white w-full px-4 py-12 bg-[linear-gradient(to_bottom_left,#ffba52_0%,#ffffff_50%,#ffba52_100%)]">
+    <section id="About" className="rounded-2xl border-2 border-white w-full  py-12 bg-[linear-gradient(to_bottom_left,#ffba52_0%,#ffffff_50%,#ffba52_100%)]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
         {/* Left: YouTube Video */}
         <div
