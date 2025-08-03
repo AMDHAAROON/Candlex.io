@@ -8,11 +8,15 @@ import Banner from "./Components/banner.jsx";
 import Faq from "./Components/Faq.jsx";
 import About from "./Components/About.jsx";
 import Footer from "./Components/Footer.jsx";
-
+import Shop from "./Components/Shop.jsx";
+import Categories from "./Components/Categories.jsx";
+import Banner2 from "./Components/Offer.jsx";
+import Collections from "./Components/Collections.jsx";
+import Soon from "./Components/Soon.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className=" bg-gray-300 px-2 ">
+    <div className=" bg-gray-100 px-2 ">
       <Navbar />
       <Hero />
       <Banner />
@@ -31,9 +35,16 @@ createRoot(document.getElementById("root")).render(
           </div>
         </div>
       </section> */}
+      
+      <Shop/>
+      <Categories />
+      <Banner2/>
       <Products/>
-      <Faq />
-      <About />
+      <Collections/>
+      {/* <Faq /> */}
+      
+      {/* <About /> */}
+      <Soon/>
       <Footer/>
     </div>
   </StrictMode>
