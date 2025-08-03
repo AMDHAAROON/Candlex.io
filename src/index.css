@@ -28,6 +28,9 @@
   width: 80%;
 }
 
+html, body {
+  overflow-x: hidden;
+}
 
 
 
