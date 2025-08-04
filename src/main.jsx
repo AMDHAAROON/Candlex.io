@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Navbar from "./Components/Navbar.jsx";
 import Hero from "./Components/Hero.jsx";
@@ -14,21 +15,46 @@ import Offer from "./Components/Offer.jsx";
 import Collections from "./Components/Collections.jsx";
 import Soon from "./Components/Soon.jsx";
 
+const HomePage = () => (
+  <>
+    <Navbar />
+    <Hero />
+    <Banner />
+    <Shop />
+    <Categories />
+    <Offer />
+    <Products />
+    <Collections />
+    <Soon />
+    <Footer />
+  </>
+);
+
+const ProductsPage = () => (
+  <>
+    <Navbar />
+    <Products />
+    <Footer />
+  </>
+);
+
+const AboutPage = () => (
+  <>
+    <Navbar />
+    <About />
+    <Footer />
+  </>
+);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className=" bg-gray-100 px-2 ">
-      <Navbar />
-      <Hero />
-      <Banner />
-      <Shop/>
-      <Categories />
-      <Offer/>
-      <Products/>
-      <Collections/>
-      {/* <Faq /> */}
-      {/* <About /> */}
-      <Soon/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 );
