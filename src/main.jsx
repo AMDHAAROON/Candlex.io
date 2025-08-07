@@ -14,29 +14,8 @@ import Categories from "./Components/Categories.jsx";
 import Offer from "./Components/Offer.jsx";
 import Collections from "./Components/Collections.jsx";
 import Soon from "./Components/Soon.jsx";
-
-const HomePage = () => (
-  <>
-    <Navbar />
-    <Hero />
-    <Banner />
-    <Shop />
-    <Categories />
-    <Offer />
-    <Products />
-    <Collections />
-    <Soon />
-    <Footer />
-  </>
-);
-
-const ProductsPage = () => (
-  <>
-    <Navbar />
-    <Products />
-    <Footer />
-  </>
-);
+import HomePage from "./Pages/home.jsx";
+import ProductsPage from "./Pages/Products.jsx";
 
 const AboutPage = () => (
   <>
