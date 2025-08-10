@@ -2,23 +2,29 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { categories } from "../Utility/data";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function Categories() {
-//   const [toggleMenu, settoggleMenu] = useState(false);
-//   const [liked, setLiked] = useState({}); // 🟢 FIX: Declare it here
+  //   const [toggleMenu, settoggleMenu] = useState(false);
+  //   const [liked, setLiked] = useState({}); // 🟢 FIX: Declare it here
 
-//   useEffect(() => {
-//     AOS.init({ duration: 800, once: false });
-//   }, []);
+  //   useEffect(() => {
+  //     AOS.init({ duration: 800, once: false });
+  //   }, []);
 
-//   const toggleLike = (index) => {
-//     setLiked((prev) => ({
-//       ...prev,
-//       [index]: !prev[index],
-//     }));
-//   };
+  //   const toggleLike = (index) => {
+  //     setLiked((prev) => ({
+  //       ...prev,
+  //       [index]: !prev[index],
+  //     }));
+  //   };
+  const handleClick = () => {
+    navigate("/products");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
+    
     <>
       <section className="pb-4" id="">
         <div className="pb-4 relative px-8 bg-[linear-gradient(to_top,#ffba52_0%,#ffffff_70%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
@@ -30,7 +36,10 @@ export default function Categories() {
             >
               POPULAR CATEGORIES
             </h1>
-            <h1
+            <Link
+              onClick={handleClick}
+              to="/products"
+              variant="contained"
               className="cursor-pointer font-semibold relative z-30 px-4 py-2 mt-5 text-xl font-hero text-[#4E3D28] floatlr-img shadow-2xl bg-[#f1cc94] hover:bg-white hover:border-[#ffce85] rounded-[300px] border-4 border-white"
               data-aos="fade"
               data-aos-once="false"
@@ -50,14 +59,13 @@ export default function Categories() {
                   d="M11.25 4.5l7.5 7.5-7.5 7.5M4.5 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
-            </h1>
+            </Link>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6  rounded-2xl">
             {categories.map((item, index) => (
               <div
                 key={index}
-              
                 className="group relative my-8 rounded-xl overflow-hidden h-[380px] w-[290px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
               >
                 <img
