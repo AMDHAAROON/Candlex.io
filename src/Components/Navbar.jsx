@@ -32,16 +32,16 @@ export default function Header() {
           scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <header className="flex justify-between px-10 py-3.5 rounded-2xl border-2 border-[#fcf5f5] shadow-2xl bg-[#f1cc94] transition-all duration-500">
+        <header className="flex justify-between items-center px-4 md:px-10 py-3 border-b-2 border-[#fcf5f5] shadow-2xl bg-[#f1cc94]">
           {/* Logo */}
           <img
             src={candle}
             alt="logo"
-            className="border-r-4 border-[#fcfaf7] h-14 w-18 pr-4"
+            className="border-r-4 border-[#fcfaf7] h-14 pr-4"
           />
 
           {/* Title */}
-          <p className="text-[#4E3D28] text-4xl mt-2 font-extrabold">Candlex</p>
+          <p className="text-[#4E3D28] text-2xl md:text-4xl font-extrabold">Candlex</p>
 
           {/* Desktop Nav */}
           <nav className="hidden md:block">
@@ -54,18 +54,16 @@ export default function Header() {
                   Home
                 </a>
               </li>
-              {["Products", "Cart", "Faq", "About", "Contact"].map(
-                (item, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
+                <li key={idx}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -74,32 +72,34 @@ export default function Header() {
             onClick={() => setToggleMenu(!toggleMenu)}
             className="block md:hidden"
           >
-            <Bars3Icon className="text-black h-10 pb-2" />
+            <Bars3Icon className="text-black h-10" />
           </button>
         </header>
 
         {/* Mobile Nav */}
-        {toggleMenu && (
-          <nav className="fixed inset-0 top-20 z-40 bg-[#4E3D28] md:hidden">
-            <ul
-              onClick={() => setToggleMenu(false)}
-              className="flex flex-col items-center justify-center h-full space-y-6 text-white text-2xl"
-            >
-              {["Products", "Cart", "Faq", "About", "Contact"].map(
-                (item, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="pb-4 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </nav>
-        )}
+        {/* Mobile Nav */}
+{toggleMenu && (
+  <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc947e] animate-slide-down md:hidden">
+
+   <ul
+  onClick={() => setToggleMenu(false)}
+  className="flex flex-col items-center justify-center h-[700px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#949494a8]"
+>
+
+      {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
+        <li key={idx} className="w-full text-center">
+          <a
+            href={`#${item.toLowerCase()}`}
+            className="block w-full py-4  hover:border-white transition-all duration-300"
+          >
+            {item}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
       </div>
     </>
   );
