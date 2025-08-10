@@ -56,6 +56,24 @@ html, body {
   scroll-behavior: smooth;
  }
 
+  .animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-nav{
+   @apply fixed text-lg top-20 right-6 left-0  rounded-2xl text-gray-500 font-mono w-full h-full bg-gray-600   ; 
+
+} 
 /* .animate-fade-in {
   animation: fade-in 1s ease-in-out;
 } */
