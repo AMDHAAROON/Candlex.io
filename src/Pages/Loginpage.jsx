@@ -1,0 +1,74 @@
+// src/pages/Login.jsx
+import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Utility/firebase"; // import firebase auth
+
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("✅ Login successful!");
+      // Example: navigate to dashboard
+      window.location.href = "/";
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#3b2f23] to-[#1c150f]">
+      {/* ... your same candle glow & glassmorphism code ... */}
+
+      <div className="relative p-[2px] rounded-2xl bg-gradient-to-br from-white/40 via-white/10 to-transparent shadow-2xl">
+        <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-8 w-96 border border-white/40 shadow-[0_4px_30px_rgba(241,204,148,0.4)]">
+          <h2 className="text-3xl font-extrabold mb-6 text-center text-[#f1cc94] drop-shadow-lg">
+            Candlex Login
+          </h2>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-white/40 focus:outline-none focus:border-[#f1cc94] shadow-inner"
+              required
+            />
+            <input
+              type="password"
+              autocomplete="current-password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-white/40 focus:outline-none focus:border-[#f1cc94] shadow-inner"
+              required
+            />
+
+             <p className="text-red-400 text-sm">Please check your email id and password</p>
+
+            <button
+              type="submit"
+              className="w-full bg-[#f1cc94]/90 text-[#3b2f23] py-3 rounded-lg font-bold shadow-lg hover:bg-[#f1cc94] hover:shadow-[0_0_25px_rgba(241,204,148,0.8)] transition duration-300"
+            >
+              Login
+            </button>
+          </form>
+
+          <p className="text-sm text-center text-gray-200 mt-6">
+            Don’t have an account?{" "}
+            <a href="/signup" className="text-[#f1cc94] hover:underline">
+              Sign up
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
