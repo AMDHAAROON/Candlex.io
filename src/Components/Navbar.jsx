@@ -32,7 +32,7 @@ export default function Header() {
           scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <header className="flex justify-between items-center px-4 md:px-10 py-3 border-b-2 border-[#fcf5f5] shadow-2xl bg-[#f1cc94]">
+        <header className="flex justify-between rounded-2xl items-center px-4 md:px-10 py-3 border-b-2 border-[#fcf5f5] shadow-2xl bg-[#f1cc94]">
           {/* Logo */}
           <img
             src={candle}
@@ -54,7 +54,7 @@ export default function Header() {
                   Home
                 </a>
               </li>
-              {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
+              {["Products", "Cart", "About", "Contact"].map((item, idx) => (
                 <li key={idx}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -77,7 +77,7 @@ export default function Header() {
         </header>
 
         {/* Mobile Nav */}
-        {/* Mobile Nav */}
+        
 {toggleMenu && (
   <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc947e] animate-slide-down md:hidden">
 
