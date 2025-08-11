@@ -16,6 +16,11 @@ import Collections from "./Components/Collections.jsx";
 import Soon from "./Components/Soon.jsx";
 import HomePage from "./Pages/home.jsx";
 import ProductsPage from "./Pages/Products.jsx";
+import Login from "./Pages/Loginpage.jsx";
+import Loginpage from "./Pages/Loginpage.jsx";
+import Signup from "./Pages/Signup.jsx";
+import ProtectedRoute from "./Components/ProtectedRoute.jsx";
+
 
 const AboutPage = () => (
   <>
@@ -29,9 +34,25 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute>
+              <ProductsPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/signup" element={<Signup />} />
         {/* Add more routes as needed */}
       </Routes>
     </BrowserRouter>
