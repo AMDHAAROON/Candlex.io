@@ -62,11 +62,11 @@ export default function Categories() {
             </Link>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6  rounded-2xl">
+          <div className="flex flex-wrap justify-center gap-6  rounded-2xl ">
             {categories.map((item, index) => (
               <div
                 key={index}
-                className="group relative my-8 rounded-xl overflow-hidden h-[380px] w-[290px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
+                className="group relative my-8 rounded-xl overflow-hidden h-[380px] w-[290px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl "
               >
                 <img
                   src={item.image}
