@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { candleProducts } from "../Utility/data";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Product() {
   const [toggleMenu, settoggleMenu] = useState(false);
@@ -17,6 +18,10 @@ export default function Product() {
       [index]: !prev[index],
     }));
   };
+  const handleClick = () => {
+    navigate("/products");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -30,7 +35,9 @@ export default function Product() {
             >
               HANDPICKED OFFERS
             </h1>
-            <h1
+            <Link
+               onClick={handleClick}
+              to="/products"
               className="cursor-pointer font-semibold relative z-30 px-4 py-2 mt-5 text-xl font-hero text-[#4E3D28] floatlr-img shadow-2xl bg-[#f1cc94] hover:bg-white hover:border-[#ffce85] rounded-[300px] border-4 border-white"
               data-aos="fade"
               data-aos-once="false"
@@ -50,7 +57,7 @@ export default function Product() {
                   d="M11.25 4.5l7.5 7.5-7.5 7.5M4.5 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
-            </h1>
+            </Link>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 ">
