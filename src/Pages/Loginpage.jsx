@@ -1,7 +1,7 @@
 // src/pages/Login.jsx
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Utility/firebase"; // import firebase auth
+import { auth } from "../Utility/firebase/firebase"; // import firebase auth
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,11 +14,10 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("✅ Login successful!");
-      // Example: navigate to dashboard
+      alert("Login successful!");
       window.location.href = "/";
     } catch (err) {
-      setError(err.message);
+      setError("Please check your email and password");
     }
   };
 
@@ -51,7 +50,7 @@ export default function Login() {
               required
             />
 
-             <p className="text-red-400 text-sm">Please check your email id and password</p>
+            {error && <p className="text-red-400 text-sm">{error}</p>}
 
             <button
               type="submit"

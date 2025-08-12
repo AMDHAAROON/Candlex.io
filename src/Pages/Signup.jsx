@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Utility/firebase";
+import { auth } from "../Utility/firebase/firebase";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ export default function Signup() {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      alert("✅ Account created successfully!");
+      alert(" Account created successfully!");
       window.location.href = "/login"; // Go back to login
     } catch (err) {
       setError(err.message);
