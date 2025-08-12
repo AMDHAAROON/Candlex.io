@@ -1,47 +1,47 @@
 import { useState } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import Footer from "../Components/Footer.jsx";
-
+import { Products} from "../Utility/data.js";
 // Dummy product data
-const candleProducts = [
-  {
-    id: 1,
-    name: "Rose Bliss",
-    price: 250,
-    fragrance: "Rose",
-    image: "../Assets/seperate/c1.png",
-  },
-  {
-    id: 2,
-    name: "Vanilla Calm",
-    price: 300,
-    fragrance: "Vanilla",
-    image: "../Assets/seperate/c2.png",
-  },
-  {
-    id: 3,
-    name: "Sandal Serenity",
-    price: 350,
-    fragrance: "Sandalwood",
-    image: "../Assets/seperate/c3.png",
-  },
-  {
-    id: 4,
-    name: "Lavender Dreams",
-    price: 220,
-    fragrance: "Lavender",
-    image: "../Assets/seperate/c4.png",
-  },
-  // Add more as needed
-];
+// const candleProducts = [
+//   {
+//     id: 1,
+//     name: "Rose Bliss",
+//     price: 250,
+//     fragrance: "Rose",
+//     image: "../Assets/seperate/c1.png",
+//   },
+//   {
+//     id: 2,
+//     name: "Vanilla Calm",
+//     price: 300,
+//     fragrance: "Vanilla",
+//     image: "../Assets/seperate/c2.png",
+//   },
+//   {
+//     id: 3,
+//     name: "Sandal Serenity",
+//     price: 350,
+//     fragrance: "Sandalwood",
+//     image: "../Assets/seperate/c3.png",
+//   },
+//   {
+//     id: 4,
+//     name: "Lavender Dreams",
+//     price: 220,
+//     fragrance: "Lavender",
+//     image: "../Assets/seperate/c4.png",
+//   },
+//   // Add more as needed
+// ];
 
 export default function CandleShop() {
   const [selectedFragrance, setSelectedFragrance] = useState("All");
   const [priceRange, setPriceRange] = useState(500);
 
-  const fragrances = ["All", ...new Set(candleProducts.map((p) => p.fragrance))];
+  const fragrances = ["All", ...new Set(Products.map((p) => p.fragrance))];
 
-  const filteredProducts = candleProducts.filter((product) => {
+  const filteredProducts = Products.filter((product) => {
     const matchesFragrance =
       selectedFragrance === "All" || product.fragrance === selectedFragrance;
     const matchesPrice = product.price <= priceRange;
