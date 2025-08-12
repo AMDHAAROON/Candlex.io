@@ -1,3 +1,5 @@
+// This data is for the "HERO(caurosel)" section which is in home page.
+
 export const slides = [
 
   {
@@ -22,21 +24,7 @@ export const slides = [
   },
 ];
 
-export const candleProducts = [
-  {
-    name: "Morroce Gift set -Artic Breeze",
-    image: "Assets/seperate/p3.jpeg"
-  },
-  {
-    name: "Magical Dunes -Glass jar",
-    image: "Assets/seperate/p2.jpeg"
-  },
-  {
-    name: "Magrble bass with glass holder",
-    image: "Assets/seperate/p1.jpeg"
-  },
-  // Add more products...
-];
+// This data is for the "Our shop by seller" section which is in home page.
 
 export const shop = [
   {
@@ -48,8 +36,10 @@ export const shop = [
   {
     image: "Assets/seperate/s3.png"
   },
-  // Add more products...
+  
 ];
+
+// This data is for the "popular categories" section which is in home page.
 
 export const categories = [
   {
@@ -70,8 +60,30 @@ export const categories = [
     name: "Candle Accessories"
 
   },
-  // Add more products...
+  
 ];
+
+// This data is for the "Handpicked offers" section which is in home page.
+
+export const candleProducts = [
+  {
+    name: "Morroce Gift set -Artic Breeze",
+    image: "Assets/seperate/p3.jpeg"
+  },
+  {
+    name: "Magical Dunes -Glass jar",
+    image: "Assets/seperate/p2.jpeg"
+  },
+  {
+    name: "Magrble bass with glass holder",
+    image: "Assets/seperate/p1.jpeg"
+  },
+  
+];
+
+
+
+// This data is for the "collection" section which is in home page. 
 
 export const Collections = [
   {
@@ -82,5 +94,39 @@ export const Collections = [
     image: "Assets/hero/big2.png",
     name: "Marble Standing Candle Holder - Set"
   },
-  // // Add more products...
+  
+];
+
+
+//This seperate data is for "PRODUCT PAGE" which has filter option etc..,
+
+export const Products=[
+  {
+    id: 1,
+    name: "Rose Bliss",
+    price: 250,
+    fragrance: "Rose",
+    image: "../Assets/seperate/c1.png",
+  },
+  {
+    id: 2,
+    name: "Vanilla Calm",
+    price: 300,
+    fragrance: "Vanilla",
+    image: "../Assets/seperate/c2.png",
+  },
+  {
+    id: 3,
+    name: "Sandal Serenity",
+    price: 350,
+    fragrance: "Sandalwood",
+    image: "../Assets/seperate/c3.png",
+  },
+  {
+    id: 4,
+    name: "Lavender Dreams",
+    price: 220,
+    fragrance: "Lavender",
+    image: "../Assets/seperate/c4.png",
+  },
 ];
