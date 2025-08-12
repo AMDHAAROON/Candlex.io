@@ -19,7 +19,7 @@ import ProductsPage from "./Pages/Products.jsx";
 import Login from "./Pages/Loginpage.jsx";
 import Loginpage from "./Pages/Loginpage.jsx";
 import Signup from "./Pages/Signup.jsx";
-import ProtectedRoute from "./Components/ProtectedRoute.jsx";
+import ProtectedRoute from "./Utility/firebase/ProtectedRoute.jsx";
 
 
 const AboutPage = () => (
