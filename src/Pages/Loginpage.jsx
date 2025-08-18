@@ -9,13 +9,18 @@ export default function Login() {
   const [error, setError] = useState("");
 
   const handleLogin = async (e) => {
+
+
+    
     e.preventDefault();
     setError("");
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Login successful!");
+         setTimeout(() => {
       window.location.href = "/";
+       }, 200); // Small delay for smooth transition
     } catch (err) {
       setError("Please check your email and password");
     }
