@@ -2,6 +2,8 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // ✅ Import Link
 import candle from "/Assets/logo/candle.png";
+import cartIcon from "/Assets/logo/cart.png";
+
 
 export default function Header() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -54,7 +56,7 @@ export default function Header() {
                 Home
               </a>
             </li>
-            {["Products", "Cart", "About", "Contact"].map((item, idx) => (
+            {["Products", "About", "Contact"].map((item, idx) => (
               <li key={idx}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -73,6 +75,18 @@ export default function Header() {
                 Login
               </Link>
             </li>
+            {/* Cart Icon */}
+<li className="relative">
+  <Link to="/cart" className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300">
+    <img src={cartIcon} alt="Cart" className="h-10 w-10" />
+  </Link>
+  {/* Badge */}
+  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+    3
+  </span>
+</li>
+
+
           </ul>
         </nav>
 
