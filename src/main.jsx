@@ -37,17 +37,17 @@ createRoot(document.getElementById("root")).render(
         <Route
           path="/"
           element={
-            <ProtectedRoute>
+            
               <HomePage />
-            </ProtectedRoute>
+            
           }
         />
         <Route
           path="/products"
           element={
-            <ProtectedRoute>
+            
               <ProductsPage />
-            </ProtectedRoute>
+            
           }
         />
         <Route path="/about" element={<AboutPage />} />
