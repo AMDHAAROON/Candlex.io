@@ -11,10 +11,20 @@ import Offer from "../Components/Offer.jsx";
 import Collections from "../Components/Collections.jsx";
 import Soon from "../Components/Soon.jsx";
 
+import React, { useEffect, useState } from "react";
+
 const home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation on mount
+    setIsVisible(true);
+  }, []);
   return (
     <>
-      <div className="px-2 bg-gray-300">
+      <div
+        className={`px-2 bg-gray-300 `}
+      >
         <Navbar />
         <Hero />
         <Banner />
