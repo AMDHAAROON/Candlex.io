@@ -1,16 +1,22 @@
+// CandleShop.jsx
+// ✅ Page to display products with filters, add-to-cart functionality, and cart panel control
+
 import { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import Footer from "../Components/Footer.jsx";
-import { Products } from "../Utility/data.js";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { Products } from "../Utility/data.js"; // Array of product data
+import { getAuth, onAuthStateChanged } from "firebase/auth"; // Firebase authentication
 import { useNavigate } from "react-router-dom";
 
+export default function CandleShop({ addToCart, setCartOpen }) {
+  // State to track logged-in user
+  const [user, setUser] = useState(null);
 
-export default function CandleShop() {
-  const [user, setUser] = useState(null); // track logged-in user
+  // Filter states
   const [selectedFragrance, setSelectedFragrance] = useState("All");
   const [priceRange, setPriceRange] = useState(500);
 
+  // Check user authentication on component mount
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (currentUser) => {
@@ -18,8 +24,10 @@ export default function CandleShop() {
     });
   }, []);
 
+  // Create fragrance filter options from product data
   const fragrances = ["All", ...new Set(Products.map((p) => p.fragrance))];
 
+  // Filter products based on selected fragrance and price range
   const filteredProducts = Products.filter((product) => {
     const matchesFragrance =
       selectedFragrance === "All" || product.fragrance === selectedFragrance;
@@ -27,18 +35,18 @@ export default function CandleShop() {
     return matchesFragrance && matchesPrice;
   });
 
-  // ProductCard Component
+  // ProductCard Component: displays a single product
   function ProductCard({ product }) {
-    const [cartCount, setCartCount] = useState(0);
     const navigate = useNavigate();
 
-
+    // Handle adding product to cart
     const handleAddToCart = () => {
       if (!user) {
-     navigate("/login");// redirect to login page
+        navigate("/login"); // Redirect to login if not logged in
         return;
       }
-      // setCartCount(cartCount + 1);
+      addToCart(product);   // Add product to cart
+      setCartOpen(true);    // Open cart panel
     };
 
     return (
@@ -57,14 +65,12 @@ export default function CandleShop() {
         >
           Add to Cart
         </button>
-        {/* <span className="mt-2 block">Cart: {cartCount}</span> */}
       </div>
     );
   }
 
   return (
     <>
-      <Navbar />
       <div className="flex flex-col md:flex-row gap-6 mt-24 p-6 bg-yellow-50 min-h-screen">
         {/* Filter Sidebar */}
         <aside className="w-full md:w-1/4 bg-white rounded-xl p-4 shadow-md sticky top-4 h-fit">
@@ -122,6 +128,8 @@ export default function CandleShop() {
           )}
         </section>
       </div>
+
+      {/* Footer */}
       <Footer />
     </>
   );
