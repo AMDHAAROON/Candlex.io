@@ -25,7 +25,7 @@ const home = () => {
       <div
         className={`px-2 bg-gray-300 `}
       >
-        <Navbar />
+        
         <Hero />
         <Banner />
         <Shop />
