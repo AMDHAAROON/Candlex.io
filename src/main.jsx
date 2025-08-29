@@ -1,60 +1,104 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./index.css";
+import { createRoot } from "react-dom/client"; // React 18 root API
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // React Router for routing
+import { useState } from "react"; // React hook for state management
+
+// Components
 import Navbar from "./Components/Navbar.jsx";
-import Hero from "./Components/Hero.jsx";
-import Products from "./Components/Product.jsx";
-import Banner from "./Components/banner.jsx";
-import Faq from "./Components/Faq.jsx";
+import Cartpanel from "./Components/Cartpanel.jsx";
+import HomePage from "./Pages/home.jsx";
+import CandleShop from "./Pages/Products.jsx";
 import About from "./Components/About.jsx";
 import Footer from "./Components/Footer.jsx";
-import Shop from "./Components/Shop.jsx";
-import Categories from "./Components/Categories.jsx";
-import Offer from "./Components/Offer.jsx";
-import Collections from "./Components/Collections.jsx";
-import Soon from "./Components/Soon.jsx";
-import HomePage from "./Pages/home.jsx";
-import ProductsPage from "./Pages/Products.jsx";
-import Login from "./Pages/Loginpage.jsx";
 import Loginpage from "./Pages/Loginpage.jsx";
 import Signup from "./Pages/Signup.jsx";
-import ProtectedRoute from "./Utility/firebase/ProtectedRoute.jsx";
 
+import "./index.css"; // Global CSS
 
-const AboutPage = () => (
-  <>
-    <Navbar />
-    <About />
-    <Footer />
-  </>
-);
+// ✅ Layout component wraps the app and decides whether to show the Navbar
+function Layout() {
+  const location = useLocation(); // React Router hook to get current path
+  const hideNavbarPaths = ["/login", "/signup"]; // Paths where Navbar should be hidden
+  const showNavbar = !hideNavbarPaths.includes(location.pathname); // Boolean flag
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            
-              <HomePage />
-            
-          }
+  // ✅ Cart state
+  const [cart, setCart] = useState([]); // Stores cart items
+  const [cartOpen, setCartOpen] = useState(false); // Controls whether CartPanel is visible
+
+  // ✅ Function to add a product to the cart
+  const addToCart = (product) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === product.id); // Check if product already exists
+      if (existing) {
+        // If exists, increase quantity
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        );
+      }
+      // If not, add new product with qty 1
+      return [...prev, { ...product, qty: 1 }];
+    });
+  };
+
+  // ✅ Function to remove a product from the cart
+  const removeFromCart = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  return (
+    <>
+      {/* Show Navbar if not on login/signup pages */}
+      {showNavbar && (
+        <Navbar
+          cart={cart} // Pass current cart items
+          setCartOpen={setCartOpen} // Function to open/close cart panel
+          removeFromCart={removeFromCart} // Function to remove items
         />
+      )}
+
+      {/* CartPanel component, visible based on cartOpen state */}
+      <Cartpanel
+        isOpen={cartOpen} // Controls visibility
+        onClose={() => setCartOpen(false)} // Close handler
+        cart={cart} // Pass cart items
+        removeFromCart={removeFromCart} // Remove item handler
+      />
+
+      {/* Routes for different pages */}
+      <Routes>
+        <Route path="/" element={<HomePage />} /> {/* Home page */}
         <Route
           path="/products"
           element={
-            
-              <ProductsPage />
-            
+            <CandleShop
+              addToCart={addToCart} // Pass function to add items from Products page
+              setCartOpen={setCartOpen} // Pass function to open cart panel
+            />
           }
         />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/login" element={<Loginpage />} />
-        <Route path="/signup" element={<Signup />} />
-        {/* Add more routes as needed */}
+        <Route
+          path="/about"
+          element={
+            <>
+              <About /> {/* About component */}
+              <Footer /> {/* Footer always shown on About page */}
+            </>
+          }
+        />
+        <Route path="/login" element={<Loginpage />} /> {/* Login page */}
+        <Route path="/signup" element={<Signup />} /> {/* Signup page */}
       </Routes>
+    </>
+  );
+}
+
+// ✅ Main App component wraps Layout in BrowserRouter
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
     </BrowserRouter>
-  </StrictMode>
-);
+  );
+}
+
+// ✅ Render the React App into root element
+createRoot(document.getElementById("root")).render(<App />);
