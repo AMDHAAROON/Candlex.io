@@ -19,7 +19,7 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Login successful!");
          setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/products";
        }, 200); // Small delay for smooth transition
     } catch (err) {
       setError("Please check your email and password");
