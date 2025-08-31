@@ -122,10 +122,10 @@ export default function Navbar({ cart = [], setCartOpen = () => {}, CartOpen = (
 
       {/* Mobile navigation menu */}
       {toggleMenu && (
-        <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc947e] animate-slide-down md:hidden">
+        <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc94] animate-slide-down md:hidden">
           <ul
             onClick={() => setToggleMenu(false)} // Close menu on link click
-            className="flex flex-col items-center justify-center h-[700px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#949494a8]"
+            className="flex flex-col items-center justify-center h-[700px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#575252c2]"
           >
             {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
               <li
