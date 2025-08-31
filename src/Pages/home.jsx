@@ -23,7 +23,7 @@ const home = () => {
   return (
     <>
       <div
-        className={`px-2 bg-gray-300 `}
+        className={`px-2 bg-gray-100 `}
       >
         
         <Hero />
