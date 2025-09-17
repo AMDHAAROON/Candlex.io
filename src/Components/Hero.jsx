@@ -133,7 +133,7 @@ const Carousel = () => {
                     variant="contained"
                     endIcon={<ArrowCircleRightIcon />}
                                            sx={{
-                          marginTop: "20px",
+                          marginTop: "40px",
                           background: `linear-gradient(91.83deg, rgb(255, 81, 47) 0%, rgb(221, 36, 118) 100%)`,
                           textTransform: "none",
                           borderRadius: "50px",
