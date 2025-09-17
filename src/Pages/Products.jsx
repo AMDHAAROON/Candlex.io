@@ -46,7 +46,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         return;
       }
       addToCart(product);   // Add product to cart
-      setCartOpen(true);    // Open cart panel
+      // setCartOpen(true);    // Open cart panel
     };
 
     return (
