@@ -15,14 +15,14 @@ export default function Cartpanel({
   return (
     // Panel container: fixed to top-right, full height, width 80, with slide-in animation
     <div
-      className={`fixed top-0 right-0 w-80 h-full bg-white shadow-xl transition-transform duration-300 z-80 ${
+      className={`fixed top-0 right-0 w-80 h-full  rounded-tl-xl my-2  bg-[#f1cc94bb] shadow-amber-300 border-3 border-white transition-transform duration-300 z-80 ${
         isOpen ? "translate-x-0" : "translate-x-full" // Slide in/out based on isOpen
       }`}
     >
       {/* Close button */}
       <button
         onClick={onClose} // Calls the onClose prop to hide the panel
-        className="p-2 m-2 bg-gray-200 rounded"
+        className="p-2 px-6 m-2 px-auto bg-amber-500 rounded-xl text-white font-bold  hover:bg-amber-600 transition"
       >
         Close
       </button>
