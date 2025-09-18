@@ -61,9 +61,15 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         <p className="text-sm text-gray-500">{product.fragrance} fragrance</p>
         <button
           onClick={handleAddToCart}
-          className="mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
+          className="mt-4 w-auto px-2 mx-10 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Add to Cart
+        </button>
+         <button
+          onClick={handleAddToCart}
+          className="mt-4 w-auto px-2  bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
+        >
+          Buy now
         </button>
       </div>
     );
