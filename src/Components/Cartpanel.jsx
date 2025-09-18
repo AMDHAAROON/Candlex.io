@@ -22,7 +22,7 @@ export default function Cartpanel({
       {/* Close button */}
       <button
         onClick={onClose} // Calls the onClose prop to hide the panel
-        className="p-2 px-6 m-2 px-auto bg-amber-500 rounded-xl text-white font-bold  hover:bg-amber-600 transition"
+        className="p-2 px-6 mx-24 m-2  bg-amber-500 rounded-xl text-white font-bold  hover:bg-amber-600 transition"
       >
         Close
       </button>
@@ -30,20 +30,20 @@ export default function Cartpanel({
       {/* Cart items container */}
       <div className="p-4">
         {/* Show message if cart is empty */}
-        {cart.length === 0 && <p>Your cart is empty</p>}
+        {cart.length === 0 && <p className="font-mono text-center">Oops, your cart looks empty</p>}
 
         {/* Render each cart item */}
         {cart.map((item) => (
           <div key={item.id} className="flex justify-between my-2">
             {/* Item name and quantity */}
-            <span>
+            <span className="font-mono pt-2  ">
               {item.name} x {item.qty}
             </span>
 
             {/* Remove item button */}
             <button
               onClick={() => removeFromCart(item.id)} // Calls removeFromCart with the item's id
-              className="text-red-500"
+              className=" font-mono bg-amber-500 rounded-xl p-1.5 text-white hover:bg-amber-600 transition"
             >
               Remove
             </button>
