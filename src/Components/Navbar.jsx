@@ -11,7 +11,11 @@ import cartIcon from "/Assets/logo/cart.png"; // Cart icon image
 // - cart: array of cart items
 // - setCartOpen: function to open/close cart panel
 // - CartOpen: (not currently used, optional)
-export default function Navbar({ cart = [], setCartOpen = () => {}, CartOpen = () => {} }) {
+export default function Navbar({
+  cart = [],
+  setCartOpen = () => {},
+  CartOpen = () => {},
+}) {
   // State to manage mobile menu toggle
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -48,12 +52,18 @@ export default function Navbar({ cart = [], setCartOpen = () => {}, CartOpen = (
         scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <header className="flex justify-between rounded-2xl items-center px-4 md:px-10 py-3 border-b-2 border-[#fcf5f5] shadow-2xl bg-[#f1cc94]">
+      <header className="flex justify-between rounded-2xl items-center px-4 md:px-10 py-3 border-b-2 border-[#fcf5f5] shadow-2xl bg-[#f1cc94d2]">
         {/* Logo */}
-        <img src={candle} alt="logo" className="border-r-4 border-[#fcfaf7] h-14 pr-4" />
+        <img
+          src={candle}
+          alt="logo"
+          className="border-r-4 border-[#fcfaf7] h-14 pr-4"
+        />
 
         {/* Title */}
-        <p className="text-[#4E3D28] text-2xl md:text-4xl font-extrabold">Candlex</p>
+        <p className="text-[#4E3D28] text-2xl md:text-4xl font-extrabold">
+          Candlex
+        </p>
 
         {/* Desktop navigation links */}
         <nav className="hidden md:block">
@@ -115,7 +125,10 @@ export default function Navbar({ cart = [], setCartOpen = () => {}, CartOpen = (
         </nav>
 
         {/* Mobile menu toggle button */}
-        <button onClick={() => setToggleMenu(!toggleMenu)} className="block md:hidden">
+        <button
+          onClick={() => setToggleMenu(!toggleMenu)}
+          className="block md:hidden"
+        >
           <Bars3Icon className="text-black h-10" />
         </button>
       </header>
@@ -127,20 +140,22 @@ export default function Navbar({ cart = [], setCartOpen = () => {}, CartOpen = (
             onClick={() => setToggleMenu(false)} // Close menu on link click
             className="flex flex-col items-center justify-center h-[700px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#575252c2]"
           >
-            {["Products", "Cart", "Faq", "About", "Contact"].map((item, idx) => (
-              <li
-                key={idx}
-                className="w-full text-center cursor-pointer"
-                onClick={() => item === "Cart" && setCartOpen(true)} // Open cart panel on Cart click
-              >
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="block w-full py-4 hover:border-white transition-all duration-300"
+            {["Products", "Cart", "Faq", "About", "Contact"].map(
+              (item, idx) => (
+                <li
+                  key={idx}
+                  className="w-full text-center cursor-pointer"
+                  onClick={() => item === "Cart" && setCartOpen(true)} // Open cart panel on Cart click
                 >
-                  {item}
-                </a>
-              </li>
-            ))}
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block w-full py-4 hover:border-white transition-all duration-300"
+                  >
+                    {item}
+                  </a>
+                </li>
+              )
+            )}
 
             {/* Login link in mobile menu */}
             <li className="w-full text-center">
