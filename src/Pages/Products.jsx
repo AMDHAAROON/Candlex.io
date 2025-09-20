@@ -45,8 +45,18 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         navigate("/login"); // Redirect to login if not logged in
         return;
       }
-      addToCart(product);   // Add product to cart
+      addToCart(product); // Add product to cart
       // setCartOpen(true);    // Open cart panel
+    };
+    const logincheck = () => {
+      if (!user) {
+        navigate("/login"); // Redirect to login if not logged in
+        return;
+      }
+    };
+    const handleClick = () => {
+      handleAddToCart();
+      logincheck();
     };
 
     return (
@@ -57,16 +67,18 @@ export default function CandleShop({ addToCart, setCartOpen }) {
           className="h-[350px] w-full object-cover rounded-xl"
         />
         <h2 className="mt-3 text-lg font-bold text-gray-800">{product.name}</h2>
-        <p className="text-amber-600 font-semibold text-md mt-1">₹{product.price}</p>
+        <p className="text-amber-600 font-semibold text-md mt-1">
+          ₹{product.price}
+        </p>
         <p className="text-sm text-gray-500">{product.fragrance} fragrance</p>
         <button
-          onClick={handleAddToCart}
+          onClick={handleClick}
           className="mt-4 w-auto px-2 mx-10 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Add to Cart
         </button>
-         <button
-          onClick={handleAddToCart}
+        <button
+          onClick={logincheck}
           className="mt-4 w-auto px-2  bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Buy now
