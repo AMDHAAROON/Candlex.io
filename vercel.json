@@ -7,6 +7,9 @@
     }
   ],
   "routes": [
-    { "source": "/(.*)", "destination": "/frontend/dist/index.html" }
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/index.html"
+    }
   ]
 }
