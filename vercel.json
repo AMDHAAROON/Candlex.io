@@ -3,4 +3,3 @@
     { "source": "/(.*)", "destination": "/frontend/dist/index.html" }
   ]
 }
-a
