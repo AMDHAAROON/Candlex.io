@@ -15,7 +15,8 @@ export default function CandleShop({ addToCart, setCartOpen }) {
   // Filter states
   const [selectedFragrance, setSelectedFragrance] = useState("All");
   const [priceRange, setPriceRange] = useState(500);
-
+      // ✅ Buy now for single product
+   
   // Check user authentication on component mount
   useEffect(() => {
     const auth = getAuth();
@@ -58,6 +59,20 @@ export default function CandleShop({ addToCart, setCartOpen }) {
       handleAddToCart();
       logincheck();
     };
+     const handleBuyNow = () => {
+      if (!user) {
+        navigate("/login");
+        return;
+      }
+
+      const adminNumber = "919500669628"; // replace with admin WhatsApp
+      const message = `🛒 New Order:\n${product.name} x 1\nPrice: ₹${product.price}`;
+      const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(
+        message
+      )}`;
+      window.open(url, "_blank");
+    };
+
 
     return (
       <div className="bg-white rounded-2xl shadow-lg p-4 transition-all hover:shadow-amber-300 hover:scale-[1.02]">
@@ -78,7 +93,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
           Add to Cart
         </button>
         <button
-          onClick={logincheck}
+          onClick={handleBuyNow}
           className="mt-4 w-auto px-2  bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Buy now
