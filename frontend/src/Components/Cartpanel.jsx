@@ -20,7 +20,7 @@ export default function Cartpanel({
       0
     );
 
-    // Final message
+    // Final msg
     const finalMessage = `🛒 New Order:\n${message}\n\nTotal: ₹${total}`;
 
     // Open WhatsApp
