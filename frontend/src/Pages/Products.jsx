@@ -75,7 +75,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
 
 
     return (
-      <div className="bg-white rounded-2xl shadow-lg p-4 transition-all hover:shadow-amber-300 hover:scale-[1.02]">
+      <div className="bg-white rounded-2xl h-[550px] shadow-lg p-4 transition-all hover:shadow-amber-300 hover:scale-[1.02]">
         <img
           src={product.image}
           alt={product.name}
