@@ -8,23 +8,27 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setError("");
 
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-    
-    e.preventDefault();
-    setError("");
+    // ✅ Save logged-in user info to localStorage
+    localStorage.setItem("user", JSON.stringify({ name: user.email }));
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful!");
-         setTimeout(() => {
+    alert("Login successful!");
+
+    setTimeout(() => {
       window.location.href = "/products";
-       }, 200); // Small delay for smooth transition
-    } catch (err) {
-      setError("Please check your email and password");
-    }
-  };
+    }, 200);
+  } catch (err) {
+    setError("Please check your email and password");
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#3b2f23] to-[#1c150f]">

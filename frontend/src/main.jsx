@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client"; // React 18 root API
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // React Router for routing
-import { useState } from "react"; // React hook for state management
-
+import { useState,useEffect } from "react"; // React hook for state management
+import { getAuth } from 'firebase/auth';
 // Components
 import Navbar from "./Components/Navbar.jsx";
 import Cartpanel from "./Components/Cartpanel.jsx";
@@ -11,6 +11,7 @@ import About from "./Components/About.jsx";
 import Footer from "./Components/Footer.jsx";
 import Loginpage from "./Pages/Loginpage.jsx";
 import Signup from "./Pages/Signup.jsx";
+
 
 import "./index.css"; // Global CSS
 
@@ -43,6 +44,33 @@ function Layout() {
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
+
+useEffect(() => {
+  const auth = getAuth();
+
+  auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // Extract user info
+      const uid = user.uid;
+      const email = user.email;
+      const display_name = user.displayName || '';
+
+      try {
+        const res = await fetch('http://localhost:4000/saveUser', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ uid, email, display_name })
+        });
+
+        const data = await res.json();
+        console.log('User saved in Supabase:', data);
+      } catch (err) {
+        console.error('Error saving user:', err);
+      }
+    }
+  });
+}, []);
+
 
   return (
     <>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../Utility/firebase/firebase";
 
 export default function Signup() {
+  const [name, setName] = useState(""); // ✅ new state for name
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -12,8 +13,12 @@ export default function Signup() {
     setError("");
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert(" Account created successfully!");
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+      // ✅ Set the display name in Firebase
+      await updateProfile(userCredential.user, { displayName: name });
+
+      alert("Account created successfully!");
       window.location.href = "/login"; // Go back to login
     } catch (err) {
       setError(err.message);
@@ -31,6 +36,16 @@ export default function Signup() {
           </h2>
 
           <form onSubmit={handleSignup} className="space-y-4">
+            {/* ✅ Name input */}
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-white/40 focus:outline-none focus:border-[#f1cc94]"
+              required
+            />
+
             <input
               type="email"
               placeholder="Email"
