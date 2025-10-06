@@ -58,7 +58,7 @@ const Footer = () => {
 
   return (
     <section>
-    <div className="py-8  ">
+    <div className="py-2  ">
     <Box  sx={{
     background: "linear-gradient(to bottom left, #ffba52 0%, #ffffff 50%, #ffba52 100%)",
     border: '2px solid',
