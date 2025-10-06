@@ -79,7 +79,7 @@ export default function Navbar({
             </li>
 
             {/* Other page links */}
-            {["Products", "About", "Contact"].map((item, idx) => (
+            {["Products"].map((item, idx) => (
               <li key={idx}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -89,7 +89,23 @@ export default function Navbar({
                 </a>
               </li>
             ))}
-
+                   <li>
+              <Link
+                to="/aboutpage"
+                className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+              >
+                About
+              </Link>
+            </li>
+               <li>
+              <Link
+                to="/contactpage"
+                className="pb-1 border-b-4 border-[#8a673d] hover:border-white transition-all duration-300"
+              >
+                Contact
+              </Link>
+            </li>
+      
             {/* Login link */}
             <li>
               <Link
