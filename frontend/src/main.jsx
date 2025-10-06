@@ -11,6 +11,8 @@ import About from "./Components/About.jsx";
 import Footer from "./Components/Footer.jsx";
 import Loginpage from "./Pages/Loginpage.jsx";
 import Signup from "./Pages/Signup.jsx";
+import Aboutpage from "./Pages/about.jsx"; 
+import Contactpage from "./Pages/contact.jsx";
 
 
 import "./index.css"; // Global CSS
@@ -108,12 +110,14 @@ useEffect(() => {
           element={
             <>
               <About /> {/* About component */}
-              <Footer /> {/* Footer always shown on About page */}
+              
             </>
           }
         />
         <Route path="/login" element={<Loginpage />} /> {/* Login page */}
         <Route path="/signup" element={<Signup />} /> {/* Signup page */}
+        <Route path="/aboutpage" element={<Aboutpage />} /> {/* About page */}
+        <Route path="/contactpage" element={<Contactpage />} /> {/* About page */}
       </Routes>
     </>
   );
