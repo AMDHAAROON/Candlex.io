@@ -27,7 +27,6 @@ const Carousel = () => {
     <div className="pt-[100px] md:pt-1 bg-gray-100 mb-5 rounded-[1rem]">
       <Box
         sx={{
-	
           backgroundColor: "#000",
           borderRadius: "1rem",
           overflow: "hidden",
@@ -115,42 +114,40 @@ const Carousel = () => {
                 </Typography>
 
                 {/* See More Button */}
-                {index !== 3 && (
-  <Box
-                       sx={{
-      marginTop: "250px", // relative spacing to overlay text
-      textAlign: { xs: "center", md: "left" }, // left on desktop, center on mobile if needed
-      paddingRight: { md: "20px", xs: 0 }, // optional spacing from right
-      width: "100%", // make Box full width so textAlign works
-    }}
-                      md={{ justtifyContent: ""
-                        
-                       }}
-                    >
-                  <Button
-                    component={Link}
-                    to={slide.path || "/products"}
-                    variant="contained"
-                    endIcon={<ArrowCircleRightIcon />}
-                                           sx={{
-                          marginTop: "40px",
-                          background: `linear-gradient(91.83deg, rgb(255, 81, 47) 0%, rgb(221, 36, 118) 100%)`,
-                          textTransform: "none",
-                          borderRadius: "50px",
-                          fontSize: "1rem",
-                          px: [4],
-                          color: "#fff",
-                          zIndex: 1,
-                          border: "2px solid transparent",
-                          "&:hover": {
-                            background: "transparent",
-                            border: "2px solid #EF3D4E",
-                          },
-                        }}
+                {index !== 2 && (
+                  <Box
+                    sx={{
+                      marginTop: "250px", // relative spacing to overlay text
+                      textAlign: { xs: "center", md: "left" }, // left on desktop, center on mobile if needed
+                      paddingRight: { md: "20px", xs: 0 }, // optional spacing from right
+                      width: "100%", // make Box full width so textAlign works
+                    }}
+                    md={{ justtifyContent: "" }}
                   >
-                    See More
-                  </Button>
-</Box>
+                    <Button
+                      component={Link}
+                      to={slide.path || "/products"}
+                      variant="contained"
+                      endIcon={<ArrowCircleRightIcon />}
+                      sx={{
+                        marginTop: "40px",
+                        background: `linear-gradient(91.83deg, rgb(255, 81, 47) 0%, rgb(221, 36, 118) 100%)`,
+                        textTransform: "none",
+                        borderRadius: "50px",
+                        fontSize: "1rem",
+                        px: [4],
+                        color: "#fff",
+                        zIndex: 1,
+                        border: "2px solid transparent",
+                        "&:hover": {
+                          background: "transparent",
+                          border: "2px solid #EF3D4E",
+                        },
+                      }}
+                    >
+                      See More
+                    </Button>
+                  </Box>
                 )}
               </Box>
             </Box>
