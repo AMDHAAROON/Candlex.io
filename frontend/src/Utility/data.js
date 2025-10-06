@@ -22,6 +22,16 @@ export const slides = [
     thumbnaildesc: "",
     path: "/",
   },
+   {
+     img: "Assets/hero/img3.png",
+    title: "",
+    topic: "",
+    des: "",
+    buttons: [],
+    thumbnailtitle: "",
+    thumbnaildesc: "",
+    path: "/",
+  },
 ];
 
 // This data is for the "Our shop by seller" section which is in home page.
