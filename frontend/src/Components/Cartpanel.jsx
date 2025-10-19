@@ -1,4 +1,4 @@
-import { auth } from "../Utility/firebase/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth"; // Firebase authentication
 
 
 // Cartpanel.jsx
@@ -14,7 +14,7 @@ export default function Cartpanel({
   // Save order to backend
   const saveOrderToBackend = async (orders) => {
     try {
-      const res = await fetch("http://localhost:4000/saveOrder", {
+      const res = await fetch("http://localhost:5000/api/orders/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ orders }),
@@ -27,36 +27,48 @@ export default function Cartpanel({
   };
 
   // Handle Buy Now → WhatsApp + Backend
-  const handleBuyNow = () => {
-    if (cart.length === 0) return;
+  const handleBuyNow = async () => {
+  if (cart.length === 0) return;
 
-    const total = cart.reduce((sum, item) => sum + item.qty * (item.price || 0), 0);
+ // ✅ Get logged-in user directly from Firebase
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
 
-    // ✅ Get logged-in user
-const storedUser = localStorage.getItem("user");
-const user = storedUser ? JSON.parse(storedUser) : null;
+  const userName = currentUser?.displayName || currentUser?.email || "Guest";
 
+  // WhatsApp message
+  const total = cart.reduce((sum, item) => sum + item.qty * (item.price || 0), 0);
+  const message = cart.map(item => `${item.name} x ${item.qty}`).join("\n");
+  const finalMessage = `🛒 New Order by ${userName}:\n${message}\n\nTotal: ₹${total}`;
+  const waUrl = `https://wa.me/${adminNumber}?text=${encodeURIComponent(finalMessage)}`;
+  window.open(waUrl, "_blank");
 
-    // WhatsApp message
-    const message = cart.map((item) => `${item.name} x ${item.qty}`).join("\n");
-    const finalMessage = `🛒 New Order by ${user?.name || "Guest"}:\n${message}\n\nTotal: ₹${total}`;
-    const waUrl = `https://wa.me/${adminNumber}?text=${encodeURIComponent(finalMessage)}`;
-    window.open(waUrl, "_blank");
-
-    // Prepare orders for backend
-    const customer_name = user?.name || "Guest"; // ✅ use logged-in user name
-    const orders = cart.map((item) => ({
-      customer_name,
-      product_name: item.name,
-      quantity: item.qty,
-      total_price: item.price * item.qty,
-    }));
-
-    saveOrderToBackend(orders);
-
-    // Optional: clear cart after purchase
-    cart.length = 0;
+  // Prepare orders for backend
+  const cartData = {
+    userName,
+    cartItems: cart.map(item => ({
+      name: item.name,
+      price: item.price,
+      qty: item.qty,
+    })),
   };
+
+  // Save orders to backend
+  try {
+    const res = await fetch("http://localhost:5000/api/orders/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cartData),
+    });
+    const data = await res.json();
+    console.log("Cart orders saved:", data);
+    alert("Order placed successfully!");
+    // Clear cart
+    cart.length = 0;
+  } catch (err) {
+    console.error("Error saving cart orders:", err);
+  }
+};
 
   return (
     <div

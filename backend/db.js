@@ -1,18 +1,13 @@
-// backend/db.js
-import pkg from 'pg';
-const { Pool } = pkg;
-import dotenv from 'dotenv';
-import { join } from 'path';
+import mongoose from "mongoose";
 
-// Load env explicitly
-dotenv.config({ path: join(process.cwd(), 'backend', '.env') });
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb://127.0.0.1:27017/candlexDB");
+    console.log("✅ Connected to Local MongoDB (candlexDB)");
+  } catch (error) {
+    console.error("❌ MongoDB Connection Error:", error);
+    process.exit(1);
+  }
+};
 
-const pool = new Pool({
-  host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  password: process.env.PGPASSWORD,
-  database: process.env.PGDATABASE,
-  port: process.env.PGPORT,
-});
-
-export default pool;
+export default connectDB;

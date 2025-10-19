@@ -59,19 +59,38 @@ export default function CandleShop({ addToCart, setCartOpen }) {
       handleAddToCart();
       logincheck();
     };
-     const handleBuyNow = () => {
-      if (!user) {
-        navigate("/login");
-        return;
-      }
+     const handleBuyNow = async () => {
+  if (!user) {
+    navigate("/login");
+    return;
+  }
 
-      const adminNumber = "919500669628"; // replace with admin WhatsApp
-      const message = `🛒 New Order:\n${product.name} x 1\nPrice: ₹${product.price}`;
-      const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(
-        message
-      )}`;
-      window.open(url, "_blank");
-    };
+  // ✅ 1. Save order to MongoDB via backend
+  const orderData = {
+    userName: user.displayName || user.email,
+    productName: product.name,
+    price: product.price,
+    quantity: 1,
+  };
+
+  try {
+    await fetch("http://localhost:5000/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    });
+    console.log("Order saved to MongoDB");
+  } catch (error) {
+    console.error("Error saving order:", error);
+  }
+
+  // ✅ 2. Send order via WhatsApp to admin
+  const adminNumber = "919500669628";
+  const message = `🛒 New Order:\n${product.name} x 1\nPrice: ₹${product.price}`;
+  const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+};
+
 
 
     return (
