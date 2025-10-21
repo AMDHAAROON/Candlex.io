@@ -24,7 +24,7 @@ export default function Collection() {
         <div className="pb-10 relative px-8 bg-[linear-gradient(to_top_right,#ffba52_0%,#ffffff_50%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
           <div className="flex justify-between items-center mt-1">
             <h1
-              className="relative inline-block px-8 pb-5 mt-5 text-2xl font-hero text-[#4E3D28] underline-on-scroll"
+              className="relative inline-block pb-2 md:pb-5 mt-5 text-lg md:text-2xl font-hero text-[#4E3D28] underline-on-scroll"
               data-aos="fade"
               data-aos-once="false"
             >
@@ -53,7 +53,7 @@ export default function Collection() {
             </h1>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 md:gap-6 rounded-2xl">
             {Collections.map((item, index) => {
               const isSecond = index === 1;
 
@@ -62,19 +62,19 @@ export default function Collection() {
                   key={index}
                   data-aos="fade-up"
                   data-aos-delay={index * 200}
-                  className={`group relative my-8 rounded-2xl overflow-hidden transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl ${
-                    isSecond ? "h-[650px] w-[500px]" : "h-[650px] w-[700px]"
+                  className={`group relative my-4 md:my-8 rounded-2xl overflow-hidden transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl ${
+                    isSecond ? "h-[250px] md:h-[650px] md:w-[500px]" : "md:h-[650px] md:w-[700px]"
                   }`}
                 >
                   <img
                     src={item.image}
                     alt={item.name}
                     className={`rounded-2xl object-cover transition-transform duration-700 ease-in-out group-hover:scale-105 w-full ${
-                      isSecond ? "h-[650px]" : "h-[650px]"
+                      isSecond ? "h-[250px] md:h-[650px]" : "h-[250px] md:h-[650px]"
                     }`}
                   />
 
-                  <div className="absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-xl font-semibold opacity-100 transition-opacity duration-700">
+                  <div className="hidden md:block absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-xl font-semibold opacity-100 transition-opacity duration-700">
                     <span>{item.name}</span>
                     <button className="bg-red-400 p-2 rounded-xl cursor-pointer hover:bg-white hover:text-red-400 font-bold">
                         shop now
