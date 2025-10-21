@@ -9,7 +9,7 @@ const Offer = () => {
         <img
           src="Assets/hero/banner-offer.png"
           alt="Banner"
-          className="w-full h-[30vh] object-cover object-left rounded-2xl"
+          className="w-full h-[10vh] sm:h-[50vh] md:h-[30vh] object-cover object-left rounded-2xl"
         />
       </div>
     </section>
