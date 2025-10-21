@@ -1,7 +1,7 @@
 export default function Soon() {
   return (
     <>
-      <section className="pb-2" id="products">
+      <section className="hidden md:block pb-2" id="products">
         <div className="pb-2 relative px-8 bg-[linear-gradient(to_top_right,#ffba52_0%,#FFEBD4_0%,#ffba52_220%)] border-4 border-white w-full h-auto rounded-2xl">
           
           {/* Flex container with no wrapping */}
