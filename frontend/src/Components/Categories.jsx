@@ -26,11 +26,11 @@ export default function Categories() {
   return (
     
     <>
-      <section className="pb-4" id="">
-        <div className="pb-4 relative px-8 bg-[linear-gradient(to_top,#ffba52_0%,#ffffff_70%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
-          <div className="flex justify-between items-center  mt-1">
+      <section className="pb-2 md:pb-4" id="">
+        <div className="pb-4 relative px-4 md:px-8 bg-[linear-gradient(to_top,#ffba52_0%,#ffffff_70%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
+          <div className="flex justify-between items-center  mt-1 pb-2">
             <h1
-              className="relative inline-block px-8 pb-5 mt-5 text-2xl font-hero text-[#4E3D28] underline-on-scroll"
+              className="relative inline-block  pb-2 md:pb-5 mt-5 text-[17px] md:text-2xl font-hero  text-[#4E3D28] underline-on-scroll"
               data-aos="fade"
               data-aos-once="false"
             >
@@ -40,7 +40,7 @@ export default function Categories() {
               onClick={handleClick}
               to="/products"
               variant="contained"
-              className="cursor-pointer font-semibold relative z-30 px-4 py-2 mt-5 text-xl font-hero text-[#4E3D28] floatlr-img shadow-2xl bg-[#f1cc94] hover:bg-white hover:border-[#ffce85] rounded-[300px] border-4 border-white"
+              className="cursor-pointer font-semibold relative z-30 px-4  py-2 mt-5 text-sm md:text-xl font-hero text-[#4E3D28] floatlr-img shadow-2xl bg-[#f1cc94] hover:bg-white hover:border-[#ffce85] rounded-[300px] border-4 border-white"
               data-aos="fade"
               data-aos-once="false"
             >
@@ -51,7 +51,7 @@ export default function Categories() {
                 viewBox="0 0 24 24"
                 strokeWidth="2"
                 stroke="currentColor"
-                className="w-6 h-6 ml-2 text-black inline"
+                className="w-3 h-3 md:w-6 md:h-6 ml-2 text-black inline"
               >
                 <path
                   strokeLinecap="round"
@@ -61,25 +61,27 @@ export default function Categories() {
               </svg>
             </Link>
           </div>
+<div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-2 md:gap-6 rounded-2xl">
+  {categories.map((item, index) => (
+    <div
+      key={index}
+        data-aos="fade-up"
+  data-aos-delay={index * 200}
+      className="group relative my-4 md:my-8 rounded-xl overflow-hidden md:h-[380px] w-[150px] md:w-[290px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl"
+    >
+      <img
+        src={item.image}
+        alt={item.name}
+        className="shadow-2xl rounded-lg md:h-[380px] w-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
+      />
 
-          <div className="flex flex-wrap justify-center gap-6  rounded-2xl ">
-            {categories.map((item, index) => (
-              <div
-                key={index}
-                className="group relative my-8 rounded-xl overflow-hidden h-[380px] w-[290px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 shadow-2xl "
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="shadow-2xl rounded-lg h-[380px] w-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
-                />
+      <div className="absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-[13px] md:text-lg font-semibold opacity-100 transition-opacity duration-700">
+        <span>{item.name}</span>
+      </div>
+    </div>
+  ))}
+</div>
 
-                <div className="absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-lg font-semibold opacity-100 transition-opacity duration-700">
-                  <span>{item.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </>
