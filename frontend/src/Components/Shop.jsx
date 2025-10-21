@@ -21,10 +21,10 @@ export default function Shop() {
   return (
     <>
       <section className="pb-4" id="">
-        <div className="md:pb-4 relative px-1 md:px-8 bg-[linear-gradient(to_top_left,#ffba52_0%,#ffffff_70%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
+        <div className="md:pb-4 relative px-3 md:px-8 bg-[linear-gradient(to_top_left,#ffba52_0%,#ffffff_70%,#ffba52_100%)] border-4 border-white w-full h-auto rounded-2xl">
           <div className="flex justify-between items-center  mt-1">
             <h1
-              className="relative inline-block px-4 md:px-8 pb-2 md:pb-5 mt-2 md:mt-5 text-lg md:text-2xl font-hero text-[#4E3D28] underline-on-scroll"
+              className="relative inline-block   pb-2 md:pb-5 mt-2 md:mt-5 text-sm md:text-2xl font-hero text-[#4E3D28] underline-on-scroll"
               data-aos="fade"
               data-aos-once="false"
             >
@@ -58,13 +58,13 @@ export default function Shop() {
               <div
                 key={index}
               
-                className="group relative mx-[4px] my-4  md:my-8 rounded-xl overflow-hidden h-[100px] w-[110px] md:w-[390px] md:h-[280px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 active:scale-105 shadow-2xl"
+                className="group relative mx-[4px] my-4  md:my-8 rounded-xl overflow-hidden h-[100px] w-[100px] md:w-[390px] md:h-[280px] transform transition-transform duration-700 ease-in-out group-hover:scale-105 active:scale-105 shadow-2xl"
               >
                 <img
                   src={item.image}
                   alt={item.name}
                    onContextMenu={(e) => e.preventDefault()}
-                  className="rounded-lg  h-[100px] w-[110px]  md:h-[280px] md:w-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105 active:scale-105"
+                  className="rounded-lg  h-[100px] w-[100px]  md:h-[280px] md:w-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105 active:scale-105"
                 />
 
                 {/* <div className="absolute bottom-0 w-full bg-[#4E3D28]/80 text-white flex justify-between items-center px-4 py-2 text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700">
