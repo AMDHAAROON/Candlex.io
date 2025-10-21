@@ -11,21 +11,33 @@
 }
 
 
+.underline-on-scroll {
+  position: relative;
+  display: inline-block;
+}
+
 .underline-on-scroll::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 10%;
-  
-  height:5px;
-  width: 0%;
+  bottom: -4px;
+  left: 0;
+  height: 5px;
+  width: 0;
   border-radius: 10px;
   background-color: #a37844;
-  transition: width 0.7s ease-out;
+  transition: width 0.6s ease-out;
 }
 
+/* ✅ Trigger underline when AOS animation activates */
 .aos-animate.underline-on-scroll::after {
-  width: 80%;
+  width: 100%; /* ✅ Perfect width match with text */
+}
+
+@media (max-width: 480px) {
+  .underline-on-scroll::after {
+    bottom: -2px;
+    height: 3px;
+  }
 }
 
 html, body {
