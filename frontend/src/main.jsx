@@ -47,31 +47,6 @@ function Layout() {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-useEffect(() => {
-  const auth = getAuth();
-
-  auth.onAuthStateChanged(async (user) => {
-    if (user) {
-      // Extract user info
-      const uid = user.uid;
-      const email = user.email;
-      const display_name = user.displayName || '';
-
-      try {
-        const res = await fetch('http://localhost:4000/saveUser', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ uid, email, display_name })
-        });
-
-        const data = await res.json();
-        console.log('User saved in Supabase:', data);
-      } catch (err) {
-        console.error('Error saving user:', err);
-      }
-    }
-  });
-}, []);
 
 
   return (
