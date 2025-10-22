@@ -70,7 +70,7 @@ const Footer = () => {
       <Box sx={{ py: 5 }}>
         <Grid container spacing={4} justifyContent="center">
           {/* Contact Information Section */}
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid size={{ xs:12 ,sm:6, md:4}}>
             <Typography variant="h6"   gutterBottom sx={{ fontWeight: 'bold' }}>
               CRAFTED CALM IN EVERY FLAME
             </Typography>
@@ -91,7 +91,7 @@ const Footer = () => {
           </Grid>
 
           {/* Quick Links Section */}
-          <Grid item xs={12} sm={6} md={2}>
+          <Grid size={{ xs:12 ,sm:6 ,md:2}}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Quick Links
             </Typography>
@@ -109,7 +109,7 @@ const Footer = () => {
           </Grid>
 
           {/* Useful Links Section */}
-          <Grid item xs={12} sm={6} md={2}>
+          <Grid size={{ xs:12 ,sm:6 ,md:2}}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Useful links
             </Typography>
@@ -138,7 +138,7 @@ const Footer = () => {
           </Grid>
 
           {/* Social Media Section */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs:12 ,sm:6 ,md:3}}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Subscribe for latest updates
             </Typography>
