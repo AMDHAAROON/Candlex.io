@@ -13,7 +13,7 @@ const BannerSection = () => {
         <img
           src="Assets/banner.jpg"
           alt="Banner"
-          className="w-full h-[10vh] sm:h-[50vh] md:h-[30vh] object-cover object-left rounded-2xl"
+          className="w-full h-[10vh] sm:h-[50vh] md:h-[20vh] object-cover object-left rounded-2xl"
         />
 
         {/* Gradient Overlay */}
@@ -28,7 +28,7 @@ const BannerSection = () => {
        className={`absolute inset-0 flex flex-col justify-center z-10 transition-opacity duration-2000 ${
             inView ? "opacity-100" : "opacity-0"}
           
-     pt-[10%] pb-[15%] md:pt-[8%] md:pb-[10%]`}
+     pt-[10%] pb-[15%] md:pt-[5%] md:pb-[10%]`}
           
         >
           <h1 className="text-center text-2xl sm:text-4xl md:text-6xl text-[#4E3D28] font-cursive px-4">
