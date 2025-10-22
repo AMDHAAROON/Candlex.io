@@ -17,11 +17,9 @@ export default function Contact() {
   }
 
   const services = [
-    { icon: Brush, title: "Creative Workshops" },
+    
     { icon: Users, title: "Community Events" },
     { icon: ShoppingBag, title: "Merchandise" },
-    { icon: Mic, title: "Open Mic Nights" },
-    { icon: Camera, title: "Photography Drives" },
     { icon: HeartHandshake, title: "Collaborations" },
   ];
 
