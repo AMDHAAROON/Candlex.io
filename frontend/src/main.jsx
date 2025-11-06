@@ -17,17 +17,17 @@ import Contactpage from "./Pages/contact.jsx";
 
 import "./index.css"; // Global CSS
 
-// ✅ Layout component wraps the app and decides whether to show the Navbar
+// Layout component wraps the app and decides whether to show the Navbar
 function Layout() {
   const location = useLocation(); // React Router hook to get current path
   const hideNavbarPaths = ["/login", "/signup"]; // Paths where Navbar should be hidden
   const showNavbar = !hideNavbarPaths.includes(location.pathname); // Boolean flag
 
-  // ✅ Cart state
+  //  Cart state
   const [cart, setCart] = useState([]); // Stores cart items
   const [cartOpen, setCartOpen] = useState(false); // Controls whether CartPanel is visible
 
-  // ✅ Function to add a product to the cart
+  //  Function to add a product to the cart
   const addToCart = (product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id); // Check if product already exists
@@ -42,7 +42,7 @@ function Layout() {
     });
   };
 
-  // ✅ Function to remove a product from the cart
+  //  Function to remove a product from the cart
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
@@ -98,7 +98,7 @@ function Layout() {
   );
 }
 
-// ✅ Main App component wraps Layout in BrowserRouter
+//  Main App component wraps Layout in BrowserRouter
 function App() {
   return (
     <BrowserRouter>
@@ -107,5 +107,5 @@ function App() {
   );
 }
 
-// ✅ Render the React App into root element
+//  Render the React App into root element
 createRoot(document.getElementById("root")).render(<App />);
