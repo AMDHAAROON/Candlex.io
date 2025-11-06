@@ -1,34 +1,30 @@
 // CandleShop.jsx
-// ✅ Page to display products with filters, add-to-cart functionality, and cart panel control
-
 import { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import Footer from "../Components/Footer.jsx";
-import { Products } from "../Utility/data.js"; // Array of product data
-import { getAuth, onAuthStateChanged } from "firebase/auth"; // Firebase authentication
+import { Products } from "../Utility/data.js";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function CandleShop({ addToCart, setCartOpen }) {
-  // State to track logged-in user
   const [user, setUser] = useState(null);
 
-  // Filter states
+  // Filters
   const [selectedFragrance, setSelectedFragrance] = useState("All");
   const [priceRange, setPriceRange] = useState(500);
-      // ✅ Buy now for single product
-   
-  // Check user authentication on component mount
+
+  // ✅ Sort state
+  const [sortOption, setSortOption] = useState("");
+
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser); // null if not logged in, user object if logged in
+      setUser(currentUser);
     });
   }, []);
 
-  // Create fragrance filter options from product data
   const fragrances = ["All", ...new Set(Products.map((p) => p.fragrance))];
 
-  // Filter products based on selected fragrance and price range
   const filteredProducts = Products.filter((product) => {
     const matchesFragrance =
       selectedFragrance === "All" || product.fragrance === selectedFragrance;
@@ -36,62 +32,57 @@ export default function CandleShop({ addToCart, setCartOpen }) {
     return matchesFragrance && matchesPrice;
   });
 
-  // ProductCard Component: displays a single product
+  // ✅ Sorting logic
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortOption === "name-asc") return a.name.localeCompare(b.name);
+    if (sortOption === "name-desc") return b.name.localeCompare(a.name);
+    if (sortOption === "price-asc") return a.price - b.price;
+    if (sortOption === "price-desc") return b.price - a.price;
+    return 0;
+  });
+
   function ProductCard({ product }) {
     const navigate = useNavigate();
 
-    // Handle adding product to cart
     const handleAddToCart = () => {
       if (!user) {
-        navigate("/login"); // Redirect to login if not logged in
+        navigate("/login");
         return;
       }
-      addToCart(product); // Add product to cart
-      // setCartOpen(true);    // Open cart panel
+      addToCart(product);
     };
-    const logincheck = () => {
+
+    const handleBuyNow = async () => {
       if (!user) {
-        navigate("/login"); // Redirect to login if not logged in
+        navigate("/login");
         return;
       }
+
+      const orderData = {
+        userName: user.displayName || user.email,
+        productName: product.name,
+        price: product.price,
+        quantity: 1,
+      };
+
+      try {
+        await fetch("http://localhost:5000/api/order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(orderData),
+        });
+        console.log("Order saved to MongoDB");
+      } catch (error) {
+        console.error("Error saving order:", error);
+      }
+
+      const adminNumber = "919500669628";
+      const message = `🛒 New Order:\n${product.name} x 1\nPrice: ₹${product.price}`;
+      const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(
+        message
+      )}`;
+      window.open(url, "_blank");
     };
-    const handleClick = () => {
-      handleAddToCart();
-      logincheck();
-    };
-     const handleBuyNow = async () => {
-  if (!user) {
-    navigate("/login");
-    return;
-  }
-
-  // ✅ 1. Save order to MongoDB via backend
-  const orderData = {
-    userName: user.displayName || user.email,
-    productName: product.name,
-    price: product.price,
-    quantity: 1,
-  };
-
-  try {
-    await fetch("http://localhost:5000/api/order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(orderData),
-    });
-    console.log("Order saved to MongoDB");
-  } catch (error) {
-    console.error("Error saving order:", error);
-  }
-
-  // ✅ 2. Send order via WhatsApp to admin
-  const adminNumber = "919500669628";
-  const message = `🛒 New Order:\n${product.name} x 1\nPrice: ₹${product.price}`;
-  const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-};
-
-
 
     return (
       <div className="bg-white rounded-2xl h-[550px] shadow-lg p-4 transition-all hover:shadow-amber-300 hover:scale-[1.02]">
@@ -106,14 +97,14 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         </p>
         <p className="text-sm text-gray-500">{product.fragrance} fragrance</p>
         <button
-          onClick={handleClick}
+          onClick={handleAddToCart}
           className="mt-4 w-auto px-2 mx-10 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Add to Cart
         </button>
         <button
           onClick={handleBuyNow}
-          className="mt-4 w-auto px-2  bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
+          className="mt-4 w-auto px-2 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Buy now
         </button>
@@ -149,8 +140,22 @@ export default function CandleShop({ addToCart, setCartOpen }) {
               ))}
             </ul>
           </div>
+          {/* ✅ Sort Dropdown */}
+          <div className="flex justify-start mb-4">
+            <select
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+            >
+              <option value="">Sort By</option>
+              <option value="name-asc">Name (A - Z)</option>
+              <option value="name-desc">Name (Z - A)</option>
+              <option value="price-asc">Price (Low - High)</option>
+              <option value="price-desc">Price (High - Low)</option>
+            </select>
+          </div>
 
-          {/* Price Range Filter */}
+          {/* Price Filter */}
           <div>
             <h3 className="font-semibold text-gray-700 mb-2">
               Price (Up to ₹{priceRange})
@@ -167,21 +172,25 @@ export default function CandleShop({ addToCart, setCartOpen }) {
           </div>
         </aside>
 
-        {/* Product Grid */}
-        <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
-          ) : (
-            <p className="text-center col-span-full text-gray-600">
-              No products match your filters.
-            </p>
-          )}
+        {/* Product Section */}
+        <section className="w-full">
+          
+
+          {/* Product Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sortedProducts.length > 0 ? (
+              sortedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            ) : (
+              <p className="text-center font-mono text-xl col-span-full text-gray-600">
+                Oops! Nothing matches your criteria right now.🧐
+              </p>
+            )}
+          </div>
         </section>
       </div>
 
-      {/* Footer */}
       <Footer />
     </>
   );
