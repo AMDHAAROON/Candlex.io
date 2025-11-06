@@ -48,6 +48,7 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
             className="border-r-4 border-[#fcfaf7] h-14 pr-4 cursor-pointer"
           />
         </Link>
+        
 
         {/* Title */}
         <Link to="/">
