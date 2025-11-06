@@ -10,6 +10,7 @@ import Categories from "../Components/Categories.jsx";
 import Offer from "../Components/Offer.jsx";
 import Collections from "../Components/Collections.jsx";
 import Soon from "../Components/Soon.jsx";
+import Whatapp from "../Components/WhatsAppBubble .jsx";
 
 import React, { useEffect, useState } from "react";
 
@@ -35,6 +36,7 @@ const home = () => {
         <Collections />
         <Soon />
         <Footer />
+        <Whatapp/>
       </div>
     </>
   );
