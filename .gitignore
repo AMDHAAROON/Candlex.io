@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 .env
 # Ignore Firebase folder
-src/Utility/firebase/
+frontend/src/Utility/firebase/
 dist
 dist-ssr
 *.local
