@@ -1,13 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config(); // This loads your .env file
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/candlexDB")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected successfully"))
   .catch(err => console.log("MongoDB connection error:", err));
 
