@@ -14,7 +14,7 @@ export default function Cartpanel({
   // Save order to backend
   const saveOrderToBackend = async (orders) => {
     try {
-      const res = await fetch("http://localhost:5000/api/orders/cart", {
+      const res = await fetch("https://candlex-io.onrender.com/api/orders/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ orders }),
@@ -55,7 +55,7 @@ export default function Cartpanel({
 
   // Save orders to backend
   try {
-    const res = await fetch("http://localhost:5000/api/orders/cart", {
+    const res = await fetch("https://candlex-io.onrender.com/api/orders/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(cartData),

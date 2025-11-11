@@ -66,7 +66,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
       };
 
       try {
-        await fetch("http://localhost:5000/api/order", {
+        await fetch("https://candlex-io.onrender.com/api/order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(orderData),
