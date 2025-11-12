@@ -93,41 +93,43 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
       </header>
 
       {/* Mobile Menu */}
-      {toggleMenu && (
-        <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc94] animate-slide-down md:hidden">
-          <ul
-            className="flex flex-col items-center justify-center h-[900px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#575252c2]"
+{toggleMenu && (
+  <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc94] animate-slide-down md:hidden">
+    <ul
+      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] 
+                 space-y-6 rounded-t-2xl text-white font-bold text-2xl bg-[#575252c2]"
+    >
+      {navLinks.map((link, idx) => (
+        <li key={idx} className="w-full text-center cursor-pointer">
+          <Link
+            to={link.path}
+            onClick={() => setToggleMenu(false)} // close menu on link click
+            className="block w-full py-4 hover:border-white transition-all duration-300"
           >
-            {navLinks.map((link, idx) => (
-              <li key={idx} className="w-full text-center cursor-pointer">
-                <Link
-                  to={link.path}
-                  onClick={() => setToggleMenu(false)} // close menu on link click
-                  className="block w-full py-4 hover:border-white transition-all duration-300"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {link.label}
+          </Link>
+        </li>
+      ))}
 
-            {/* 🛒 Cart icon (mobile) */}
-            <li
-              className="relative cursor-pointer mt-6"
-              onClick={() => {
-                setCartOpen(true); // open cart
-                setToggleMenu(false); // close mobile menu
-              }}
-            >
-              <img src={cartIcon} alt="Cart" className="h-12 w-12" />
-              {cart.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
-                  {cart.length}
-                </span>
-              )}
-            </li>
-          </ul>
-        </nav>
-      )}
+      {/* 🛒 Cart icon (mobile) */}
+      <li
+        className="relative cursor-pointer mt-6"
+        onClick={() => {
+          setCartOpen(true); // open cart
+          setToggleMenu(false); // close mobile menu
+        }}
+      >
+        <img src={cartIcon} alt="Cart" className="h-12 w-12" />
+        {cart.length > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+            {cart.length}
+          </span>
+        )}
+      </li>
+    </ul>
+  </nav>
+)}
+
     </div>
   );
 }
