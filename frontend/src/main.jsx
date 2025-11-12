@@ -65,6 +65,7 @@ function Layout() {
         isOpen={cartOpen} // Controls visibility
         onClose={() => setCartOpen(false)} // Close handler
         cart={cart} // Pass cart items
+        setCart={setCart}   
         removeFromCart={removeFromCart} // Remove item handler
       />
 
