@@ -10,7 +10,6 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const updateScrollDirection = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
@@ -20,7 +19,6 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
       }
       lastScrollY = currentScrollY;
     };
-
     window.addEventListener("scroll", updateScrollDirection);
     return () => window.removeEventListener("scroll", updateScrollDirection);
   }, []);
@@ -48,7 +46,6 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
             className="border-r-4 border-[#fcfaf7] h-14 pr-4 cursor-pointer"
           />
         </Link>
-        
 
         {/* Title */}
         <Link to="/">
@@ -71,7 +68,7 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
               </li>
             ))}
 
-            {/* Cart icon */}
+            {/* 🛒 Cart icon (desktop) */}
             <li
               className="relative cursor-pointer z-50"
               onClick={() => setCartOpen(true)}
@@ -95,27 +92,39 @@ export default function Navbar({ cart = [], setCartOpen = () => {} }) {
         </button>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {toggleMenu && (
         <nav className="fixed inset-0 top-20 z-50 bg-[#f1cc94] animate-slide-down md:hidden">
           <ul
-            onClick={() => setToggleMenu(false)}
-            className="flex flex-col items-center justify-center h-[700px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#575252c2]"
+            className="flex flex-col items-center justify-center h-[900px] space-y-6 rounded-t-2xl text-white text-bold text-2xl bg-[#575252c2]"
           >
             {navLinks.map((link, idx) => (
-              <li
-                key={idx}
-                className="w-full text-center cursor-pointer"
-                onClick={() => link.label === "Cart" && setCartOpen(true)}
-              >
+              <li key={idx} className="w-full text-center cursor-pointer">
                 <Link
                   to={link.path}
+                  onClick={() => setToggleMenu(false)} // close menu on link click
                   className="block w-full py-4 hover:border-white transition-all duration-300"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
+
+            {/* 🛒 Cart icon (mobile) */}
+            <li
+              className="relative cursor-pointer mt-6"
+              onClick={() => {
+                setCartOpen(true); // open cart
+                setToggleMenu(false); // close mobile menu
+              }}
+            >
+              <img src={cartIcon} alt="Cart" className="h-12 w-12" />
+              {cart.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                  {cart.length}
+                </span>
+              )}
+            </li>
           </ul>
         </nav>
       )}
