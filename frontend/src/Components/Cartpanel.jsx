@@ -76,7 +76,7 @@ export default function Cartpanel({
   const updateCartQty = async (productId, qty) => {
     if (!user) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/cart/${user.uid}/item`, {
+      const res = await fetch(`https://candlex-io.onrender.com/api/cart/${user.uid}/item`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId, qty }),
@@ -142,7 +142,7 @@ export default function Cartpanel({
     if (!user) return;
     try {
       const res = await fetch(
-        `http://localhost:5000/api/cart/${user.uid}/item/${productId}`,
+        `https://candlex-io.onrender.com/api/cart/${user.uid}/item/${productId}`,
         { method: "DELETE" }
       );
 
@@ -202,7 +202,7 @@ export default function Cartpanel({
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/order", {
+      const res = await fetch("https://candlex-io.onrender.com/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
@@ -216,7 +216,7 @@ export default function Cartpanel({
 
       console.log("Order saved:", data);
 
-      await fetch(`http://localhost:5000/api/CartCollection/${user.uid}`, {
+      await fetch(`https://candlex-io.onrender.com/api/CartCollection/${user.uid}`, {
         method: "DELETE",
       });
 
