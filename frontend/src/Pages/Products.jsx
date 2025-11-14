@@ -1,6 +1,6 @@
-// CandleShop.jsx
+
 /* 
-  Component: CandleShop
+  Component: Product page
   Purpose: Displays the candle products with filtering, sorting, and purchasing options.
   Props:
     - addToCart: Function to update the cart state in the parent component.
