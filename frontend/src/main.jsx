@@ -1,7 +1,14 @@
-import { createRoot } from "react-dom/client"; // React 18 root API
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // React Router for routing
-import { useState,useEffect } from "react"; // React hook for state management
-import { getAuth } from 'firebase/auth';
+/**
+ * Entry point and routing structure for the web application.
+ * This file defines a layout wrapper that manages global UI elements
+ * such as the navigation bar and cart panel, and sets up page routing
+ * using React Router.
+ */
+
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
+
 // Components
 import Navbar from "./Components/Navbar.jsx";
 import Cartpanel from "./Components/Cartpanel.jsx";
@@ -11,95 +18,114 @@ import About from "./Components/About.jsx";
 import Footer from "./Components/Footer.jsx";
 import Loginpage from "./Pages/Loginpage.jsx";
 import Signup from "./Pages/Signup.jsx";
-import Aboutpage from "./Pages/about.jsx"; 
+import Aboutpage from "./Pages/about.jsx";
 import Contactpage from "./Pages/contact.jsx";
 
+import "./index.css";
 
-import "./index.css"; // Global CSS
-
-// Layout component wraps the app and decides whether to show the Navbar
+/**
+ * Layout Component
+ *
+ * Responsibilities:
+ * - Controls visibility of the navigation bar based on the current route.
+ * - Maintains a unified cart state shared across the application.
+ * - Provides cart operations including adding and removing items.
+ * - Renders the cart panel and all route-based pages.
+ */
 function Layout() {
-  const location = useLocation(); // React Router hook to get current path
-  const hideNavbarPaths = ["/login", "/signup"]; // Paths where Navbar should be hidden
-  const showNavbar = !hideNavbarPaths.includes(location.pathname); // Boolean flag
+  const location = useLocation();
 
-  //  Cart state
-  const [cart, setCart] = useState([]); // Stores cart items
-  const [cartOpen, setCartOpen] = useState(false); // Controls whether CartPanel is visible
+  /**
+   * Routes where the navigation bar should be hidden.
+   * Typically used for authentication-related pages.
+   */
+  const hideNavbarPaths = ["/login", "/signup"];
+  const showNavbar = !hideNavbarPaths.includes(location.pathname);
 
-  //  Function to add a product to the cart
+  /**
+   * Global cart state.
+   * cartItems: Stores all cart products with their respective quantities.
+   * cartOpen: Controls the visibility of the cart panel.
+   */
+  const [cartItems, setCartItems] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+
+  /**
+   * Adds a product to the cart.
+   * If the product already exists, its quantity is incremented.
+   *
+   * @param {Object} product - Product object to be added to the cart.
+   */
   const addToCart = (product) => {
-    setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id); // Check if product already exists
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
       if (existing) {
-        // If exists, increase quantity
         return prev.map((item) =>
           item.id === product.id ? { ...item, qty: item.qty + 1 } : item
         );
       }
-      // If not, add new product with qty 1
       return [...prev, { ...product, qty: 1 }];
     });
   };
 
-  //  Function to remove a product from the cart
+  /**
+   * Removes a product from the cart using its identifier.
+   *
+   * @param {number|string} id - Unique identifier of the product to remove.
+   */
   const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
-
-
 
   return (
     <>
-      {/* Show Navbar if not on login/signup pages */}
+      {/* Navigation bar (hidden on login and signup pages) */}
       {showNavbar && (
         <Navbar
-          cart={cart} // Pass current cart items
-          setCartOpen={setCartOpen} // Function to open/close cart panel
-          removeFromCart={removeFromCart} // Function to remove items
+          cart={cartItems}
+          setCartOpen={setCartOpen}
+          removeFromCart={removeFromCart}
+          setCartItems={setCartItems}
         />
       )}
 
-      {/* CartPanel component, visible based on cartOpen state */}
+      {/* Cart panel used for viewing and modifying cart items */}
       <Cartpanel
-        isOpen={cartOpen} // Controls visibility
-        onClose={() => setCartOpen(false)} // Close handler
-        cart={cart} // Pass cart items
-        setCart={setCart}   
-        removeFromCart={removeFromCart} // Remove item handler
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        cart={cartItems}
+        setCart={setCartItems}
+        removeFromCart={removeFromCart}
       />
 
-      {/* Routes for different pages */}
+      {/* Routing structure for all application pages */}
       <Routes>
-        <Route path="/" element={<HomePage />} /> {/* Home page */}
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/products"
           element={
             <CandleShop
-              addToCart={addToCart} // Pass function to add items from Products page
-              setCartOpen={setCartOpen} // Pass function to open cart panel
+              addToCart={addToCart}
+              setCartOpen={setCartOpen}
             />
           }
         />
-        <Route
-          path="/about"
-          element={
-            <>
-              <About /> {/* About component */}
-              
-            </>
-          }
-        />
-        <Route path="/login" element={<Loginpage />} /> {/* Login page */}
-        <Route path="/signup" element={<Signup />} /> {/* Signup page */}
-        <Route path="/aboutpage" element={<Aboutpage />} /> {/* About page */}
-        <Route path="/contactpage" element={<Contactpage />} /> {/* About page */}
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/aboutpage" element={<Aboutpage />} />
+        <Route path="/contactpage" element={<Contactpage />} />
       </Routes>
     </>
   );
 }
 
-//  Main App component wraps Layout in BrowserRouter
+/**
+ * App Component
+ *
+ * Wraps the application in a BrowserRouter to enable
+ * client-side routing throughout the project.
+ */
 function App() {
   return (
     <BrowserRouter>
@@ -108,5 +134,5 @@ function App() {
   );
 }
 
-//  Render the React App into root element
+// Mounts the application to the root DOM node.
 createRoot(document.getElementById("root")).render(<App />);
