@@ -133,7 +133,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
       // Backend update
       try {
         const res = await fetch(
-          `http://localhost:5000/api/CartCollection/${userId}`,
+          `https://candlex-io.onrender.com/api/CartCollection/${userId}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -190,7 +190,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
       };
 
       try {
-        const res = await fetch("http://localhost:5000/api/order", {
+        const res = await fetch("https://candlex-io.onrender.com/api/order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(orderData),
