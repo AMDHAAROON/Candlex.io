@@ -69,7 +69,7 @@ export default function Navbar({
       if (!currentUser) return;
 
       try {
-        const res = await fetch(`http://localhost:5000/api/CartCollection/${currentUser.uid}`);
+        const res = await fetch(`https://candlex-io.onrender.com/api/CartCollection/${currentUser.uid}`);
         if (!res.ok) return;
 
         const data = await res.json();
@@ -112,7 +112,7 @@ export default function Navbar({
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/CartCollection/${uid}`,
+        `https://candlex-io.onrender.com/api/CartCollection/${uid}`,
         { method: "GET", headers: { "Content-Type": "application/json" } }
       );
       console.log("Navbar fetch cart response:", res.status);
