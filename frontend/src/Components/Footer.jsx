@@ -173,6 +173,7 @@ const Footer = () => {
             <a
              
               onClick={ScrollToTop}
+              href="https://www.linkedin.com/in/mohamed-haaroon/"
               style={{
                 color: "#FFB700",
                 textDecoration: "none",
@@ -180,7 +181,7 @@ const Footer = () => {
                 fontSize: "1rem",
               }}
             >
-              Dream in Divs
+              Haaroon
             </a>
           </Typography>
         </Box>
