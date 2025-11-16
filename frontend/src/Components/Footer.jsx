@@ -12,23 +12,24 @@ import Grid from "@mui/material/Grid";
 // Navigation links for quick access
 const navLinks = [
   { title: "Home", path: "/" },
-  { title: "Products", path: "/" },
-  { title: "Contact Us", path: "/" },
+  { title: "Products", path: "/products" },
+  { title: "About us", path: "/aboutpage" },
+  { title: "Contact Us", path: "/contactpage" },
 ];
 
 // Useful external links
 const UsefulLinks = [
-  { title: "Privacy Policy", href: "https://src.sastra.edu/" },
-  { title: "Return & Refund Policy", path: "https://src.sastra.edu/" },
+  { title: "Privacy Policy", href: "/" },
+  { title: "Return & Refund Policy", path: "/" },
 ];
 
 // Social media links
 const socialLinks = [
   {
     Icon: InstagramIcon,
-    url: "https://www.instagram.com/theta_src",
+    url: "https://www.instagram.com/mhd_haaroon/",
   },
-  { Icon: YouTubeIcon, url: "https://www.youtube.com/@thetasrc" },
+  { Icon: YouTubeIcon, url: "https://youtu.be/j_P35HJn5Ow?si=nrbxQx5Ezi9WovV5" },
 ];
 
 // Function to scroll to top when links are clicked
@@ -86,7 +87,7 @@ const Footer = () => {
             </Box>
             <Box display="flex" alignItems="center" mt={1}>
               <EmailIcon />
-              <Typography sx={{ ml: 2,fontWeight: 600 }}>support@candleglow.in</Typography>
+              <Typography sx={{ ml: 2,fontWeight: 600 }}>support@candleglow.gmail.com</Typography>
             </Box>
           </Grid>
 
