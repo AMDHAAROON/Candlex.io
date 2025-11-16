@@ -231,12 +231,11 @@ export default function Cartpanel({
       Order details:      
       ${orderDetails}
       Total: ₹${orderData.totalAmount}
-    Please confirm my order.`;
+    Please confirm my order.(This is a test message for development purposes. Thank you for assisting with website testing.)`;
 
-      const phoneNumber = "919500669628";
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-        message
-      )}`;
+      const phoneNumber = "+919500669628";
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)
+    }`;
 
       alert("Order placed! Redirecting to WhatsApp...");
       window.open(whatsappURL, "_blank");

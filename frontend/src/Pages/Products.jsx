@@ -209,9 +209,10 @@ export default function CandleShop({ addToCart, setCartOpen }) {
           Price: ₹${price}
           Total: ₹${totalAmount}
 
-          ✅ Order placed successfully!`;
+          ✅ Order placed successfully!
+          (This is a test message for development purposes. Thank you for assisting with website testing.)`;
 
-          const whatsappNumber = "9500669628";
+          const whatsappNumber = "+919500669628";
           const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
             message
           )}`;
