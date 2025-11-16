@@ -1,4 +1,3 @@
-
 /* 
   Component: Product page
   Purpose: Displays the candle products with filtering, sorting, and purchasing options.
@@ -241,7 +240,10 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         <p className="text-sm text-gray-500">{product.fragrance} fragrance</p>
 
         <button
-          onClick={handleAddToCart}
+          onClick={() => {
+            handleAddToCart();
+            alert("Product added to the cart. Please check the menu.");
+          }}
           className="mt-4 w-auto px-2 mx-10 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
           Add to Cart
