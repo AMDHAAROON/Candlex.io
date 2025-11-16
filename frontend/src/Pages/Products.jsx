@@ -125,6 +125,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         navigate("/login");
         return;
       }
+        alert("Product added to the cart. Please check the menu.");
 
       // UI update
       addToCart(product);
@@ -242,7 +243,7 @@ export default function CandleShop({ addToCart, setCartOpen }) {
         <button
           onClick={() => {
             handleAddToCart();
-            alert("Product added to the cart. Please check the menu.");
+          
           }}
           className="mt-4 w-auto px-2 mx-10 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition"
         >
