@@ -1,25 +1,109 @@
-Under development process
+# 🕯️ CandleX – Mini MERN E-Commerce Website
+
+A simple candle shop project built for learning full-stack development.
+
+🌐 **Live Demo**  
+[https://candlex-io.vercel.app](https://candlex-io.vercel.app)
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- Firebase Authentication
+- Fetch API
+
+### Backend
+- Node.js + Express
+- MongoDB (Local / Atlas)
+- Mongoose ORM
+- REST API
+
+---
+
+## ⭐ Features
+
+### 🔐 Authentication
+- Login/Signup with Firebase Auth  
+- Automatically loads cart on login  
+
+### 🛒 Cart System (Full CRUD)
+- Add items  
+- Increase / decrease quantity  
+- Delete items  
+- Clear entire cart  
+- Navbar shows total quantity dynamically  
+- Cart synced with MongoDB  
+
+---
+
+## ⚙️ Backend CRUD Routes
+
+| Method | Route                                      | Description              |
+|--------|--------------------------------------------|--------------------------|
+| POST   | `/api/CartCollection/:uid`                 | Add item to cart         |
+| GET    | `/api/CartCollection/:uid`                 | Fetch user cart          |
+| PUT    | `/api/CartCollection/:uid/update-quantity` | Update quantity       |
+| DELETE | `/api/CartCollection/:uid/:productId`      | Delete one item          |
+| DELETE | `/api/CartCollection/:uid`                 | Clear entire cart        |
+
+---
+
+## 📁 Project Structure
+
+CandleX/
+│
+├── backend/
+│   ├── models/
+│   └── server.js
+│    
+└──frontend/
+    ├── Components/
+    ├── pages/
+    ├── Utility/
+    └── main.jsx
+    
+---
+
+## 🔧 Installation & Setup
+
+### 1️⃣ Clone the repo
+```bash
+git clone [https://github.com/AMDHAAROON/Candlex.io.git](https://github.com/AMDHAAROON/Candlex.io.git)
+cd candlex
+
+##  Backend Setup
+
+```bash
+cd backend
+npm install
+
+### Create .env file in your backend
+
+MONGO_URI=mongodb://ip address/database name
+PORT=5000
+
+## 🚀 Start the backend
+
+node server.js
+
+### 2️⃣ Frontend Setup
+
+cd frontend
+npm install
+npm run dev
+
+## 🔄 Sync Cart Across Devices
+
+To sync cart across multiple devices:
+
+- Host backend on **Render** or **Railway**  
+- Use **MongoDB Atlas**  
+- Replace all frontend API URLs with your deployed backend URL  
+- Host the frontend on vercel or anyother services you want.
 
 
-# Candlex.io 🕯️  
-An elegant and responsive web experience designed for modern lighting solutions.
 
-## 🔮 Overview  
-Candlex.io is a sleek portfolio-style site showcasing candlelight aesthetics, blending modern web technologies like **Tailwind CSS** and **Vite** for optimized performance and elegant design.
 
-## 🚀 Features  
-- Responsive design with Tailwind CSS  
-- Custom light-purple and white color palette for thematic harmony  
-- Firebase hosting with custom domain integration  
-- Smooth navigation and contact form functionality
-
-## 🛠️ Tech Stack  
-- **Framework**: Vite + React  
-- **Styling**: Tailwind CSS   
-- **Version Control**: Git + GitHub  
-
-## 🧩 Setup Instructions  
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/AMDHAAROON/Candlex.io.git
-   cd Candlex.io
